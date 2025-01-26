@@ -27,7 +27,7 @@ public class ConfirmEmailHandler : UserBaseRequestHandler<ConfirmEmailCommand, R
                 IsEmailConfirmed = true,
                 ConfirmationToken = null
             };
-            await _userRepository.SaveIncludeAsync(user, nameof(user.IsEmailConfirmed), nameof(user.ConfirmationToken));
+            await _userRepository.SaveIncludeAsync(user, nameof(User.IsEmailConfirmed), nameof(User.ConfirmationToken));
 
             return RequestResult<bool>.Success(user.IsEmailConfirmed);
         }

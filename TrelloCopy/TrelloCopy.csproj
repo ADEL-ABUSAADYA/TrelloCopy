@@ -11,6 +11,7 @@
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
         <PackageReference Include="FluentValidation" Version="12.0.0-preview1" />
         <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+        <PackageReference Include="MailKit" Version="4.9.0" />
         <PackageReference Include="MediatR" Version="11.1.0" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.12" />
@@ -22,7 +23,6 @@
         </PackageReference>
         <PackageReference Include="Otp.NET" Version="1.4.0" />
         <PackageReference Include="PredicateExtensions" Version="1.0.0" />
-        <PackageReference Include="SendGrid" Version="9.29.3" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.1" />
     </ItemGroup>

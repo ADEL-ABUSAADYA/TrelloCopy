@@ -154,3 +154,9 @@
 /Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/obj/Debug/net8.0/TrelloCopy.pdb
 /Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/obj/Debug/net8.0/TrelloCopy.genruntimeconfig.cache
 /Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/obj/Debug/net8.0/ref/TrelloCopy.dll
+/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/bin/Debug/net8.0/BouncyCastle.Cryptography.dll
+/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/bin/Debug/net8.0/MailKit.dll
+/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/bin/Debug/net8.0/MimeKit.dll
+/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/bin/Debug/net8.0/System.Security.Cryptography.Pkcs.dll
+/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/bin/Debug/net8.0/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll
+/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/obj/Debug/net8.0/TrelloCopy.sourcelink.json

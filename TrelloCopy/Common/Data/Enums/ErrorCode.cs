@@ -10,5 +10,6 @@ public enum ErrorCode
     ItemAlreadyExists,
     UserNotFound,
     UserAlreadyExist,
-    EmailNotSent
+    EmailNotSent,
+    UserAlreadyRegistered
 }

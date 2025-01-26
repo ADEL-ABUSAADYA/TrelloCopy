@@ -1,7 +1,7 @@
+using MailKit.Net.Smtp;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using SendGrid;
-using SendGrid.Helpers.Mail;
+using MimeKit;
 using TrelloCopy.Common;
 using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Common.Views;
@@ -26,51 +26,61 @@ public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand
         
         PasswordHasher<string> passwordHasher = null;
         var password = passwordHasher.HashPassword(null, request.password);
-        
-        var userID = await _repository.AddAsync(new User
-        { 
-          Email=request.email,
-          Password = password,
-          Name = request.name,
-          PhoneNo= request.phoneNo,
-          Country= request.country,
-          IsActive = true,
-          ConfirmationToken = Guid.NewGuid().ToString()
-        });
+        var user = new User
+        {
+            Email = request.email,
+            Password = password,
+            Name = request.name,
+            PhoneNo = request.phoneNo,
+            Country = request.country,
+            IsActive = true,
+            ConfirmationToken = Guid.NewGuid().ToString()
+        };
+        var userID = await _repository.AddAsync(user);
         await _repository.SaveChangesAsync();
         
         if (userID < 0)
         return RequestResult<bool>.Failure(ErrorCode.UnKnownError);
         
-        var emailSent = await SendConfirmationEmail(request.email, request.name);
+        var confirmationLink = $"https://yourdomain.com/confirm?email={user.Email}&token={user.ConfirmationToken}";
+        
+        var emailSent = await SendConfirmationEmail(user.Email, user.Name, confirmationLink);
         if (!emailSent.isSuccess)
             return RequestResult<bool>.Failure(ErrorCode.EmailNotSent);
 
         return RequestResult<bool>.Success(true);
     }
     
-    private async Task<RequestResult<bool>> SendConfirmationEmail(string email, string name)
+    private async Task<RequestResult<bool>> SendConfirmationEmail(string email, string name, string confirmationLink)
     {
+        
+        var message = new MimeMessage();
+        message.From.Add(new MailboxAddress("Test", "emile.murphy59@ethereal.email"));
+        message.To.Add(new MailboxAddress($"{name}", email));
+        message.Subject = "UpSkilling Final Project";
+        message.Body = new TextPart("html") { Text = $"hello {name}! \n {confirmationLink}" };
+
+        message.Body = new TextPart("plain")
+        {
+            Text = $"Please confirm your registration by clicking the following link: {confirmationLink}"
+        };
+
         try
         {
-            var client = new SendGridClient("_sendGridApiKey");
-            var from = new EmailAddress("adelabusaadya@gmail.com", "ProjectManagementSystem");
-            var subject = "Confirm Your Registration";
-            var to = new EmailAddress(email, name);
-            var plainTextContent = $"Hello {name},\n\nPlease confirm your registration by clicking the link below.";
-            var htmlContent = $"<p>Hello {name},</p><p>Please confirm your registration by clicking the link below:</p><p><a href='https://UpSkillingProjectManagementSystem.com/confirm?email={email}'>Confirm Email</a></p>";
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            
-            var response = await client.SendEmailAsync(msg);
-            var isSent = response.StatusCode == System.Net.HttpStatusCode.Accepted;
-            if (isSent)
-            return RequestResult<bool>.Success(isSent);
-            
-            return RequestResult<bool>.Failure(ErrorCode.UnKnownError);
+            using (var client = new SmtpClient())
+            {
+                await client.ConnectAsync("smtp.ethereal.email", 587, false);
+                await client.AuthenticateAsync("emile.murphy59@ethereal.email", "J4kFQAfdux87RAghJb");
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
+            }
+
+            return RequestResult<bool>.Success(true);
         }
         catch (Exception ex)
         {
             return RequestResult<bool>.Failure(ErrorCode.UnKnownError, ex.Message);
         }
+        
     }
 }

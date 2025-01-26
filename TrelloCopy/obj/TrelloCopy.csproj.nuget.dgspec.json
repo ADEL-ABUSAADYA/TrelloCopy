@@ -59,6 +59,10 @@
               "target": "Package",
               "version": "[11.3.0, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[11.1.0, )"
@@ -92,10 +96,6 @@
             "PredicateExtensions": {
               "target": "Package",
               "version": "[1.0.0, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.29.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

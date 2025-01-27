@@ -46,6 +46,7 @@ public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCom
         if (userID < 0)
         return RequestResult<bool>.Failure(ErrorCode.UnKnownError);
         
+        
         var confirmationLink = $"https://yourdomain.com/confirm?email={user.Email}&token={user.ConfirmationToken}";
         
         var emailSent = await SendConfirmationEmail(user.Email, user.Name, confirmationLink);
@@ -58,7 +59,7 @@ public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCom
     private async Task<RequestResult<bool>> SendConfirmationEmail(string email, string name, string confirmationLink)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("Test", "emile.murphy59@ethereal.email"));
+        message.From.Add(new MailboxAddress("adel", "adel.fantasy15@gmail.com"));
         message.To.Add(new MailboxAddress(name, email));
         message.Subject = "UpSkilling Final Project";
 
@@ -75,8 +76,16 @@ public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCom
         {
             using (var client = new SmtpClient())
             {
-                await client.ConnectAsync("smtp.ethereal.email", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                await client.AuthenticateAsync("emile.murphy59@ethereal.email", "J4kFQAfdux87RAghJb");
+                // Set the timeout for connection and authentication
+                client.Timeout = 10000;  // Timeout after 10 seconds
+            
+                // Connect using StartTLS for security
+                await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+
+                // Authenticate with the provided credentials
+                await client.AuthenticateAsync("adel.fantasy15@gmail.com", "Dolla111");
+
+                // Send the email
                 await client.SendAsync(message);
                 await client.DisconnectAsync(true);
             }
@@ -85,7 +94,11 @@ public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCom
         }
         catch (Exception ex)
         {
+            // Log the detailed exception message for debugging
             Console.WriteLine($"Error sending email: {ex.Message}");
+            Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+
+            // Return failure with error details
             return RequestResult<bool>.Failure(ErrorCode.UnKnownError, ex.Message);
         }
     }

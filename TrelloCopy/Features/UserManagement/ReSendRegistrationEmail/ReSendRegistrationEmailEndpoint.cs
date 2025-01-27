@@ -13,7 +13,7 @@ public class ReSendRegistrationEmailEndpoint : BaseEndpoint<ReSendRegistrationEm
    }
 
    [HttpPut]
-   public async Task<EndpointResponse<bool>> RegisterUser(ReSendRegistrationEmailRequestViewModel viewmodel)
+   public async Task<EndpointResponse<bool>> ReSendEmail(ReSendRegistrationEmailRequestViewModel viewmodel)
    {
       var validationResult =  ValidateRequest(viewmodel);
       if (!validationResult.isSuccess)

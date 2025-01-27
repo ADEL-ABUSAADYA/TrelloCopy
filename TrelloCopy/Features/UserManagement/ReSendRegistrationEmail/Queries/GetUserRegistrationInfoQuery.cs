@@ -27,7 +27,7 @@ public class GetUserRegistrationInfoQueryHandler : UserBaseRequestHandler<GetUse
         }).FirstOrDefaultAsync();
         
         if (result == null)
-            return RequestResult<RegistrationInfoDTO>.Failure(ErrorCode.UserNotFound);
+            return RequestResult<RegistrationInfoDTO>.Failure(ErrorCode.UserNotFound, "please check your email address or register your email address.");
         
         return RequestResult<RegistrationInfoDTO>.Success(result);
     }

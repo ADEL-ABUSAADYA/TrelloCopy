@@ -20,9 +20,9 @@ public class ReSendRegistrationEmailEndpoint : BaseEndpoint<ReSendRegistrationEm
          return validationResult;
       
       var reSendCommand = new ReSendRegistrationEmailCommand(viewmodel.Email);
-      var isReSend = await _mediator.Send(reSendCommand);
-      if (!isReSend.isSuccess)
-         return EndpointResponse<bool>.Failure(isReSend.errorCode, isReSend.message);
+      var isReSent = await _mediator.Send(reSendCommand);
+      if (!isReSent.isSuccess)
+         return EndpointResponse<bool>.Failure(isReSent.errorCode, isReSent.message);
       
       return EndpointResponse<bool>.Success(true);
    }

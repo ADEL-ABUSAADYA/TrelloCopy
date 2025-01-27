@@ -1,97 +1,96 @@
+using System.Reflection;
 using System.Text;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using TrelloCopy.Common;
 using TrelloCopy.Configrations;
 using TrelloCopy.Data;
+using TrelloCopy.Data.Repositories;
+using TrelloCopy.Features.UserManagement.ConfirmUserRegistration;
+using TrelloCopy.Features.UserManagement.RegisterUser;
 using TrelloCopy.Middlewares;
+using TrelloCopy.Models;
 
 namespace TrelloCopy;
 
 public class Program
 {
     public static void Main(string[] args)
-    {
+    { 
         var builder = WebApplication.CreateBuilder(args);
-    
-    var configuration = new ConfigurationBuilder()
-        .AddJsonFile("appsettings.json")
-        .Build();
-    builder.Services.AddDbContext<Context>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-    builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
-
-    builder.Host.ConfigureContainer<ContainerBuilder>(
-        container =>
+        builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+        builder.Host.ConfigureContainer<ContainerBuilder>(
+            container =>
+            {
+                container.RegisterModule<ApplicationModule>();
+                container.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+                    .AsClosedTypesOf(typeof(IValidator<>))
+                    .AsImplementedInterfaces()
+                    .InstancePerLifetimeScope();
+                container.RegisterGeneric(typeof(BaseEndpointParameters<>))
+                    .AsSelf()
+                    .InstancePerLifetimeScope();
+                container.RegisterType<Mediator>().As<IMediator>().InstancePerLifetimeScope();
+            });
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddControllers();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
+        builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+        builder.Services.AddMediatR(typeof(Program).Assembly);
+        var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+        var secretKey = jwtSettings.GetValue<string>("SecretKey");
+        var key = Encoding.UTF8.GetBytes(secretKey);
+        builder.Services.AddAuthentication(opts =>
         {
-            container.RegisterModule<AutoFacModule>();
+            opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(opts =>
+        {
+            opts.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+            {
+                ValidIssuer = jwtSettings.GetValue<string>("Issuer"),
+                ValidAudience = jwtSettings.GetValue<string>("Audience"),
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateAudience = true,
+                ValidateIssuer = true,
+                ValidateIssuerSigningKey = true,
+                ValidateLifetime = true,
+            };
         });
-    
-    
+        
+        builder.Services.AddAuthorization();
 
-    builder.Services.AddHttpContextAccessor();
-    builder.Services.AddControllers();
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-    
-    builder.Services.AddMediatR(typeof(Program).Assembly);
+        var app = builder.Build();
 
-    builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+        app.UseAuthentication();
+        app.UseAuthorization();
 
-    var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-    var secretKey = jwtSettings.GetValue<string>("SecretKey");
-    if (string.IsNullOrEmpty(secretKey))
-    {
-        throw new InvalidOperationException("SecretKey is not configured properly in appsettings.json");
-    }
-    var key = Encoding.UTF8.GetBytes(secretKey);
-
-    builder.Services.AddAuthentication(opts =>
-    {
-        opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    })
-    .AddJwtBearer(opts =>
-    {
-        opts.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        if (app.Environment.IsDevelopment())
         {
-            ValidIssuer = jwtSettings.GetValue<string>("Issuer"),
-            ValidAudience = jwtSettings.GetValue<string>("Audience"),
-            IssuerSigningKey = new SymmetricSecurityKey(key),
-            ValidateAudience = true,
-            ValidateIssuer = true,
-            ValidateIssuerSigningKey = true,
-            ValidateLifetime = true,
-        };
-    });
-    
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
 
-    builder.Services.AddAuthorization();
+        app.UseHttpsRedirection();
 
-    var app = builder.Build();
+        app.UseAuthorization();
 
-    app.UseAuthentication();
-    app.UseAuthorization();
+        app.MapControllers();
 
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
-
-    app.UseHttpsRedirection();
-
-    app.UseAuthorization();
-
-    app.MapControllers();
-
-    app.UseMiddleware<GlobalErrorHandlerMiddleware>();
-    
-    app.UseMiddleware<TransactionMiddleware>();
-    
-    app.Run();
+        app.UseMiddleware<GlobalErrorHandlerMiddleware>();
+        
+        app.UseMiddleware<TransactionMiddleware>();
+        
+        app.Run();
 
     }
 }
+
+// builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+//

@@ -12,7 +12,7 @@ public class User : BaseModel
     public bool IsActive { get; set; } = true;
     
     public bool TwoFactorAuthEnabled { get; set; }
-    public string TwoFactorAuthsecretKey { get; set; }
+    public string? TwoFactorAuthsecretKey { get; set; }
 
     public bool IsEmailConfirmed { get; set; } = false;
     public string? ConfirmationToken { get; set; }

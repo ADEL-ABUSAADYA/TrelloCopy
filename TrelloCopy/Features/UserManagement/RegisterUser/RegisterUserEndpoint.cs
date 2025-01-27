@@ -5,20 +5,20 @@ using TrelloCopy.Features.userManagement.RegisterUser.Commands;
 
 namespace TrelloCopy.Features.UserManagement.RegisterUser;
 
-public class RegisterUserEndpoint : BaseEndpoint<RegesterUserRequestViewModel, bool>
+public class RegisterUserEndpoint : BaseEndpoint<RegisterUserRequestViewModel, bool>
 {
-   public RegisterUserEndpoint(BaseEndpointParameters<RegesterUserRequestViewModel> parameters) : base(parameters)
+   public RegisterUserEndpoint(BaseEndpointParameters<RegisterUserRequestViewModel> parameters) : base(parameters)
    {
    }
 
    [HttpPut]
-   public async Task<EndpointResponse<bool>> RegisterUser(RegesterUserRequestViewModel viewmodel)
+   public async Task<EndpointResponse<bool>> RegisterUser(RegisterUserRequestViewModel viewmodel)
    {
       var validationResult =  ValidateRequest(viewmodel);
       if (!validationResult.isSuccess)
          return validationResult;
       
-      var regisetrCommand = new RegisterUserCommand(viewmodel.email, viewmodel.password, viewmodel.name, viewmodel.phoneNo, viewmodel.country);
+      var regisetrCommand = new RegisterUserCommand(viewmodel.Email, viewmodel.Password, viewmodel.Name, viewmodel.PhoneNo, viewmodel.Country);
       var isRegistered = await _mediator.Send(regisetrCommand);
       if (!isRegistered.isSuccess)
          return EndpointResponse<bool>.Failure(isRegistered.errorCode, isRegistered.message);

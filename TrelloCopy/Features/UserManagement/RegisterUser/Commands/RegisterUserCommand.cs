@@ -12,9 +12,9 @@ namespace TrelloCopy.Features.userManagement.RegisterUser.Commands;
 
 public record RegisterUserCommand(string email, string password, string name, string phoneNo, string country) : IRequest<RequestResult<bool>>;
 
-public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand, RequestResult<bool>>
+public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCommand, RequestResult<bool>>
 {
-    public RegisterUserCommandHandler(BaseRequestHandlerParameters parameters) : base(parameters)
+    public RegisterUserCommandHandler(UserBaseRequestHandlerParameters parameters) : base(parameters)
     {
     }
 
@@ -24,20 +24,24 @@ public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand
         if (reponse.isSuccess)
             return RequestResult<bool>.Failure(ErrorCode.UserAlreadyExist);
         
-        PasswordHasher<string> passwordHasher = null;
+        PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
         var password = passwordHasher.HashPassword(null, request.password);
+        
         var user = new User
         {
             Email = request.email,
             Password = password,
+            RoleID = 3,
             Name = request.name,
             PhoneNo = request.phoneNo,
             Country = request.country,
             IsActive = true,
             ConfirmationToken = Guid.NewGuid().ToString()
         };
-        var userID = await _repository.AddAsync(user);
-        await _repository.SaveChangesAsync();
+        
+       
+        var userID = await _userRepository.AddAsync(user);
+        await _userRepository.SaveChangesAsync();
         
         if (userID < 0)
         return RequestResult<bool>.Failure(ErrorCode.UnKnownError);

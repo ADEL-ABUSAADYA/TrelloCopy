@@ -10,7 +10,7 @@ public class ConfirmEmailEndpoint : BaseEndpoint<ConfirmEmailRequestViewModel, b
 {
     public ConfirmEmailEndpoint(BaseEndpointParameters<ConfirmEmailRequestViewModel> parameters): base(parameters){}
 
-    [HttpGet]
+    [HttpPost]
     public async Task<EndpointResponse<bool>> ConfirmEmail(ConfirmEmailRequestViewModel viewmodel)
     {
         var validationResult =  ValidateRequest(viewmodel);

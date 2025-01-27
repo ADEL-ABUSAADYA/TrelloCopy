@@ -63,23 +63,24 @@ namespace TrelloCopy.Data.Repositories{
         {
             try
             {
-                var local = _dbSet.Local.FindEntry(entity.ID) ?? _dbSet.Entry(entity);
-                EntityEntry entry = null;
+                var localEntity = _dbSet.Local.FirstOrDefault(e => e.ID == entity.ID);
+                EntityEntry entry;
 
-                if (local is null)
+                if (localEntity is null)
                 {
+                    _dbSet.Attach(entity);
                     entry = _context.Entry(entity);
                 }
                 else
                 {
-                    entry = _context.ChangeTracker.Entries<Entity>()
-                        .FirstOrDefault(x => x.Entity.ID == entity.ID);
+                    entry = _context.Entry(localEntity);
                 }
 
                 if (entry == null)
                 {
-                    return false; // Entity not found
+                    return false;
                 }
+
 
                 foreach (var property in entry.Properties)
                 {
@@ -92,14 +93,11 @@ namespace TrelloCopy.Data.Repositories{
 
                 entity.UpdatedDate = DateTime.UtcNow;
                 entry.Property(nameof(entity.UpdatedBy)).IsModified = true;
-
-                await _context.SaveChangesAsync();
+                
                 return true;
             }
             catch (Exception ex)
             {
-                // Log the error (consider using a logging framework)
-                Console.WriteLine($"Error updating entity: {ex.Message}");
                 return false;
             }
         }

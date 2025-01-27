@@ -57,23 +57,25 @@ public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCom
     
     private async Task<RequestResult<bool>> SendConfirmationEmail(string email, string name, string confirmationLink)
     {
-        
         var message = new MimeMessage();
         message.From.Add(new MailboxAddress("Test", "emile.murphy59@ethereal.email"));
-        message.To.Add(new MailboxAddress($"{name}", email));
+        message.To.Add(new MailboxAddress(name, email));
         message.Subject = "UpSkilling Final Project";
-        message.Body = new TextPart("html") { Text = $"hello {name}! \n {confirmationLink}" };
 
-        message.Body = new TextPart("plain")
+        // Create multipart content for both plain text and HTML
+        var bodyBuilder = new BodyBuilder
         {
-            Text = $"Please confirm your registration by clicking the following link: {confirmationLink}"
+            TextBody = $"Please confirm your registration by clicking the following link: {confirmationLink}",
+            HtmlBody = $"<p>Hello {name}!</p><p>Please confirm your registration by clicking <a href='{confirmationLink}'>this link</a>.</p>"
         };
+
+        message.Body = bodyBuilder.ToMessageBody();
 
         try
         {
             using (var client = new SmtpClient())
             {
-                await client.ConnectAsync("smtp.ethereal.email", 587, false);
+                await client.ConnectAsync("smtp.ethereal.email", 587, MailKit.Security.SecureSocketOptions.StartTls);
                 await client.AuthenticateAsync("emile.murphy59@ethereal.email", "J4kFQAfdux87RAghJb");
                 await client.SendAsync(message);
                 await client.DisconnectAsync(true);
@@ -83,8 +85,8 @@ public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCom
         }
         catch (Exception ex)
         {
+            Console.WriteLine($"Error sending email: {ex.Message}");
             return RequestResult<bool>.Failure(ErrorCode.UnKnownError, ex.Message);
         }
-        
     }
 }

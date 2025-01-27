@@ -25,3 +25,4 @@ public class ConfirmEmailEndpoint : BaseEndpoint<ConfirmEmailRequestViewModel, b
         return EndpointResponse<bool>.Failure(isConfirmed.errorCode, isConfirmed.message);
     }
 }
+

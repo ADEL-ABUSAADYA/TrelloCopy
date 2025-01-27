@@ -20,7 +20,8 @@ public class GetUserRegistrationInfoQueryHandler : UserBaseRequestHandler<GetUse
     {
         var result = await _userRepository.Get(u => u.Email == request.email).Select(u => new RegistrationInfoDTO
         {
-            Token = u.ConfirmationToken,
+            Name = u.Name,
+            ConfirmationToken = u.ConfirmationToken,
             Email = u.Email,
             IsRegistered = u.IsEmailConfirmed
         }).FirstOrDefaultAsync();

@@ -19,20 +19,25 @@ public class ConfirmEmailHandler : UserBaseRequestHandler<ConfirmEmailCommand, R
     {
         var isRegistered = await _mediator.Send(new IsUserRegisteredQuery(request.email, request.token));
 
+        User user = new User();
         if (isRegistered.isSuccess)
         {
-            var user = new User
-            {
-                ID = isRegistered.data,
-                IsEmailConfirmed = true,
-                ConfirmationToken = null
-            };
-            await _userRepository.SaveIncludeAsync(user, nameof(User.IsEmailConfirmed), nameof(User.ConfirmationToken));
+            user.ID = isRegistered.data;
+            user.IsEmailConfirmed = true;
+            user.ConfirmationToken = null;
 
-            return RequestResult<bool>.Success(user.IsEmailConfirmed);
+            var result = await _userRepository.SaveIncludeAsync(user, nameof(User.IsEmailConfirmed),
+                nameof(User.ConfirmationToken));
+
+            await _userRepository.SaveChangesAsync();
+            return RequestResult<bool>.Success(result);
         }
-        
+
         return RequestResult<bool>.Failure(isRegistered.errorCode, isRegistered.message);
     }
+
+    
 }
+
+
 

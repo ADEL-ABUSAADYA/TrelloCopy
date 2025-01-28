@@ -16,14 +16,16 @@ public class LogInUserCommandHandler : UserBaseRequestHandler<LogInUserCommand, 
 
     public override async Task<RequestResult<string>> Handle(LogInUserCommand request, CancellationToken cancellationToken)
     {
-        PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
-        var password = passwordHasher.HashPassword(null, request.Password);
         
-        var userInfo = await _mediator.Send(new GetUserLogInInfoQuery(request.Email, password));
+               
+        var userInfo = await _mediator.Send(new GetUserLogInInfoQuery(request.Email));
         if (!userInfo.isSuccess)
         {
             return RequestResult<string>.Failure(userInfo.errorCode, userInfo.message);
         }
+        var isPasswordMached = CheckPassword(request.Password, userInfo.data.hashedPassword);
+        if (!isPasswordMached)
+            return RequestResult<string>.Failure(userInfo.errorCode, "password is incorrect.");
         
         if (userInfo.data.ID != 0 && !userInfo.data.IsAuthenticationEnabled)
         {
@@ -36,5 +38,15 @@ public class LogInUserCommandHandler : UserBaseRequestHandler<LogInUserCommand, 
         }
 
         return RequestResult<string>.Failure(userInfo.errorCode, userInfo.message);
+    }
+
+    private bool CheckPassword(string requestPassword, string databasePassword)
+    {
+        PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
+        var passwordVerificationResult = passwordHasher.VerifyHashedPassword(null, databasePassword, requestPassword);
+        if (passwordVerificationResult== PasswordVerificationResult.Success)
+        return true;
+        
+        return false;
     }
 }

@@ -14,9 +14,7 @@ public record RegisterUserCommand(string email, string password, string name, st
 
 public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCommand, RequestResult<bool>>
 {
-    public RegisterUserCommandHandler(UserBaseRequestHandlerParameters parameters) : base(parameters)
-    {
-    }
+    public RegisterUserCommandHandler(UserBaseRequestHandlerParameters parameters) : base(parameters) { }
 
     public async override Task<RequestResult<bool>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {

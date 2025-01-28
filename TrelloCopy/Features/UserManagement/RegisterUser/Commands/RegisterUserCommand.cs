@@ -72,34 +72,24 @@ public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCom
 
         message.Body = bodyBuilder.ToMessageBody();
 
-        try
+        
+        using (var client = new SmtpClient())
         {
-            using (var client = new SmtpClient())
-            {
-                // Set the timeout for connection and authentication
-                client.Timeout = 10000;  // Timeout after 10 seconds
-            
-                // Connect using StartTLS for security
-                await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+            // Set the timeout for connection and authentication
+            client.Timeout = 10000;  // Timeout after 10 seconds
+        
+            // Connect using StartTLS for security
+            await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
 
-                // Authenticate with the provided credentials
-                await client.AuthenticateAsync("adel.fantasy15@gmail.com", "Dolla111");
+            // Authenticate with the provided credentials
+            await client.AuthenticateAsync("adel.fantasy15@gmail.com", "Dolla111");
 
-                // Send the email
-                await client.SendAsync(message);
-                await client.DisconnectAsync(true);
-            }
-
-            return RequestResult<bool>.Success(true);
+            // Send the email
+            await client.SendAsync(message);
+            await client.DisconnectAsync(true);
         }
-        catch (Exception ex)
-        {
-            // Log the detailed exception message for debugging
-            Console.WriteLine($"Error sending email: {ex.Message}");
-            Console.WriteLine($"Stack Trace: {ex.StackTrace}");
 
-            // Return failure with error details
-            return RequestResult<bool>.Failure(ErrorCode.UnKnownError, ex.Message);
-        }
+        return RequestResult<bool>.Success(true);
+        
     }
 }

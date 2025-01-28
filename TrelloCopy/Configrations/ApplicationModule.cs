@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using TrelloCopy.Common;
+using TrelloCopy.Common.Views;
 using TrelloCopy.Data;
 using TrelloCopy.Data.Repositories;
 using TrelloCopy.Features.Common.Users.DTOs;
@@ -119,7 +120,8 @@ namespace TrelloCopy.Configrations
             .As<IValidator<RegisterUserRequestViewModel>>()
             .InstancePerLifetimeScope();
         
-        
+        builder.RegisterType<TokenHelper>().AsSelf().InstancePerLifetimeScope();
+        builder.RegisterType<UserInfo>().AsSelf().InstancePerLifetimeScope();
         }
     }
 }

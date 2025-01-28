@@ -11,18 +11,18 @@ namespace TrelloCopy.Data.Repositories
 
         public async Task<(int, bool)> LogInUser(string email, string password)
         {
-            var user = await _context.Users
+            var userData = await _context.Users
             .AsNoTracking()
             .Where(u => u.Email == email && u.Password == password) 
             .Select(u => new { u.ID, u.TwoFactorAuthEnabled })
             .FirstOrDefaultAsync();
 
-            if (user == null)
+            if (userData is null)
             {
                 return (0, false);
             }
 
-            return (user.ID, user.TwoFactorAuthEnabled);
+            return (userData.ID, userData.TwoFactorAuthEnabled);
         }
     }
 }

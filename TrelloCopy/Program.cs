@@ -43,27 +43,6 @@ public class Program
         builder.Services.AddSwaggerGen();
         builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
         builder.Services.AddMediatR(typeof(Program).Assembly);
-        var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-        var secretKey = jwtSettings.GetValue<string>("SecretKey");
-        var key = Encoding.UTF8.GetBytes(secretKey);
-        builder.Services.AddAuthentication(opts =>
-        {
-            opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        })
-        .AddJwtBearer(opts =>
-        {
-            opts.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-            {
-                ValidIssuer = jwtSettings.GetValue<string>("Issuer"),
-                ValidAudience = jwtSettings.GetValue<string>("Audience"),
-                IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateAudience = true,
-                ValidateIssuer = true,
-                ValidateIssuerSigningKey = true,
-                ValidateLifetime = true,
-            };
-        });
-        
         builder.Services.AddAuthorization();
 
         var app = builder.Build();

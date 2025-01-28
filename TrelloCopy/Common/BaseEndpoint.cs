@@ -19,8 +19,6 @@ public class BaseEndpoint<TRequest, TResponse> : ControllerBase
     {
         _mediator = parameters.Mediator;
         _validator = parameters.Validator;
-
-        parameters.UserInfo = new UserInfo { };
         _userInfo = parameters.UserInfo;
     }
 

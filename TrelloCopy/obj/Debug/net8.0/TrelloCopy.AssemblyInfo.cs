@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrelloCopy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b508e532aab25e7a8da743c05428aac34f05c8cd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2374cfd31614b7704dee62c3dd37138899e0962")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrelloCopy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrelloCopy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

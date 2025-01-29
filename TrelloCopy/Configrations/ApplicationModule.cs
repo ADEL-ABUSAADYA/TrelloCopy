@@ -1,27 +1,22 @@
-using System.Diagnostics;
 using System.Reflection;
-using System.Security.Claims;
 using System.Text;
 using Autofac;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using TrelloCopy.Common;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Data;
 using TrelloCopy.Data.Repositories;
-using TrelloCopy.Features.Common.Users.DTOs;
+using TrelloCopy.Features.UserManagement.ActivateUser2FA;
 using TrelloCopy.Features.UserManagement.ConfirmUserRegistration;
 using TrelloCopy.Features.UserManagement.LogInUser;
 using TrelloCopy.Features.UserManagement.RegisterUser;
-using TrelloCopy.Features.userManagement.RegisterUser.Queries;
 using TrelloCopy.Helpers;
 using TrelloCopy.Models;
 using Module = Autofac.Module;
@@ -45,13 +40,16 @@ namespace TrelloCopy.Configrations
             }).As<Context>().InstancePerLifetimeScope();
             #endregion
 
+            #region Services Registration
+            builder.RegisterType<UserInfo>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<TokenHelper>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<UserInfoProvider>().AsSelf().InstancePerLifetimeScope();
+            #endregion
+
             #region MediatR Handlers Registration
             // Register MediatR request handlers
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .AsClosedTypesOf(typeof(IRequestHandler<,>))
-                .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
             #endregion
@@ -73,6 +71,7 @@ namespace TrelloCopy.Configrations
             // Register endpoints
             builder.RegisterType<RegisterUserEndpoint>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<ConfirmEmailEndpoint>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<Activate2FAQRCodeEndpoint>().AsSelf().InstancePerLifetimeScope();
             #endregion
 
             #region Repository Registration
@@ -148,28 +147,13 @@ namespace TrelloCopy.Configrations
                 .InstancePerLifetimeScope();
             #endregion
 
-            #region Helper and UserInfo Registration
-            // Register helper classes
-            builder.RegisterType<TokenHelper>().AsSelf().InstancePerLifetimeScope();
-            builder.RegisterType<UserInfo>().AsSelf().InstancePerLifetimeScope();
-            #endregion
-            builder.RegisterType<BaseEndpointParameters<int>>()
-                .AsSelf()
-                .InstancePerLifetimeScope();
-            
+            #region Other Registrations
             builder.RegisterType<LogInInfoDTOValidator>()
                 .As<IValidator<LogInInfoDTO>>()
                 .InstancePerLifetimeScope();
-            
-            builder.Register(c =>
-            {
-                var httpContextAccessor = c.Resolve<IHttpContextAccessor>();
-                var user = httpContextAccessor.HttpContext.User;
-                return new UserInfo
-                {
-                    ID = int.TryParse(user?.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var userId) ? userId : 0
-                };
-            }).As<UserInfo>().InstancePerLifetimeScope();
+            builder.RegisterType<UserInfoFilter>().As<IActionFilter>().InstancePerLifetimeScope();
+            builder.RegisterType<Mediator>().As<IMediator>().InstancePerLifetimeScope(); 
+            #endregion
         }
     }
 }

@@ -10,6 +10,7 @@ using TrelloCopy.Filters;
 
 namespace TrelloCopy.Features.UserManagement.ActivateUser2FA;
 
+
 public class Activate2FAQRCodeEndpoint : BaseEndpoint<LogInInfoDTO, string>
 {
     public Activate2FAQRCodeEndpoint(BaseEndpointParameters<LogInInfoDTO> parameters) : base(parameters)

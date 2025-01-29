@@ -1,15 +1,18 @@
 ﻿using System.Security.Claims;
 using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Common.Views;
+using TrelloCopy.Filters;
 
 namespace TrelloCopy.Common;
 
 [ApiController]
 [Route("[controller]/[action]")]
-//[ServiceFilter(typeof(CustomeAuthorizeFilter))]
+
+// [TypeFilter(typeof(UserInfoFilter))]
 public class BaseEndpoint<TRequest, TResponse> : ControllerBase
 {
     protected IMediator _mediator;
@@ -20,7 +23,6 @@ public class BaseEndpoint<TRequest, TResponse> : ControllerBase
     {
         _mediator = parameters.Mediator;
         _validator = parameters.Validator;
-        
         _userInfo = parameters.UserInfo;
     }
 

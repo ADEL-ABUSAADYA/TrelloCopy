@@ -21,11 +21,11 @@ namespace TrelloCopy.Common
         
 
         // Constructor accepts the generic repository type for flexibility
-        public BaseRequestHandlerParameters(IMediator mediator, IRepository<TEntity> repository, UserInfo userInfo, TokenHelper tokenHelper)
+        public BaseRequestHandlerParameters(IMediator mediator, IRepository<TEntity> repository, UserInfoProvider userInfoProvider, TokenHelper tokenHelper)
         {
             _mediator = mediator;
             _repository = repository;
-            _userInfo = userInfo;
+            _userInfo = userInfoProvider.UserInfo;
             _tokenHelper = tokenHelper;
             
         }

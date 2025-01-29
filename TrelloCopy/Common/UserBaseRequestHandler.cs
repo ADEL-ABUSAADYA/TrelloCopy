@@ -11,7 +11,7 @@ public abstract class UserBaseRequestHandler<TRequest, TRespone> : IRequestHandl
     protected readonly IMediator _mediator;
     protected readonly IUserRepository _userRepository;
     protected readonly TokenHelper _tokenHelper;
-    public UserInfo _userInfo { get; set; }
+    protected readonly UserInfo _userInfo;
 
     public UserBaseRequestHandler(UserBaseRequestHandlerParameters parameters)
     {

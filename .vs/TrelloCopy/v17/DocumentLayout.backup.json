@@ -3,40 +3,52 @@
   "WorkspaceRootPath": "F:\\jsp\\TrelloCopy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\chamgepassword\\commands\\changepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\chamgepassword\\commands\\changepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\chamgepassword\\queries\\isuserexistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\chamgepassword\\queries\\isuserexistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\chamgepassword\\changepasswordrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\chamgepassword\\changepasswordrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\forgetpassword\\forgetpasswordenpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\forgetpassword\\forgetpasswordenpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\forgetpassword\\forgetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\forgetpassword\\forgetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\chamgepassword\\changepasswordendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\chamgepassword\\changepasswordendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\chamgepassword\\queries\\isuserexistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\chamgepassword\\queries\\isuserexistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\confirmuserregistration\\commands\\confirmemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\confirmuserregistration\\commands\\confirmemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\resetpassword\\resetpasswordendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\resetpassword\\resetpasswordendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\registeruser\\registeruserendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\registeruser\\registeruserendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\registeruser\\commands\\registerusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\registeruser\\commands\\registerusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\common\\commonquary\\sendeamilquary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\common\\commonquary\\sendeamilquary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\forgetpassword\\forgetpasswordenpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\forgetpassword\\forgetpasswordenpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\resetpassword\\resetpasswordendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\resetpassword\\resetpasswordendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\chamgepassword\\commands\\changepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\chamgepassword\\commands\\changepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\registeruser\\commands\\registerusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\registeruser\\commands\\registerusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\resetpassword\\resetpasswordrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\resetpassword\\commands\\reserrpasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\resetpassword\\commands\\reserrpasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\forgetpassword\\forgetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\forgetpassword\\forgetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\registeruser\\registeruserrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -69,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -108,10 +112,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\data\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\data\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\migrations\\20250128222225_init2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\migrations\\20250128222225_init2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/./TrelloCopy/True/SqlTable/dbo.Roles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
@@ -157,10 +157,6 @@
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\common\\data\\enums\\errorcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\migrations\\20250128131716_innt1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\migrations\\20250128131716_innt1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\rabbitmq\\rabbitmqconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\rabbitmq\\rabbitmqconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -193,10 +189,6 @@
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\confirmuserregistration\\queries\\isuserregisteredquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\confirmuserregistration\\commands\\confirmemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\confirmuserregistration\\commands\\confirmemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\common\\data\\enums\\feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\common\\data\\enums\\feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -207,10 +199,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\loginuser\\queries\\getuserlogininfoquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\loginuser\\queries\\getuserlogininfoquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\migrations\\20250128220620_init1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\migrations\\20250128220620_init1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -220,11 +208,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IsUserExistQuery.cs",
+              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
+              "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
+              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
+              "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T15:23:38.78Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
@@ -234,50 +244,64 @@
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordRequestViewModel.cs",
               "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordRequestViewModel.cs",
               "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordRequestViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T15:23:44.873Z"
+              "WhenOpened": "2025-01-29T15:23:44.873Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ForgetPasswordEnpoint.cs",
+              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordEnpoint.cs",
+              "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordEnpoint.cs",
+              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordEnpoint.cs",
+              "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordEnpoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T10:03:46.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ForgetPasswordViewModel.cs",
+              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordViewModel.cs",
+              "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordViewModel.cs",
+              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordViewModel.cs",
+              "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T11:09:09.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ChangePasswordEndPoint.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordEndPoint.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordEndPoint.cs",
               "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordEndPoint.cs",
               "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordEndPoint.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-29T15:23:43.389Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IsUserExistQuery.cs",
-              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
-              "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
-              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
-              "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "ConfirmEmailCommand.cs",
+              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ConfirmUserRegistration\\Commands\\ConfirmEmailCommand.cs",
+              "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ConfirmUserRegistration\\Commands\\ConfirmEmailCommand.cs",
+              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ConfirmUserRegistration\\Commands\\ConfirmEmailCommand.cs",
+              "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ConfirmUserRegistration\\Commands\\ConfirmEmailCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T15:23:38.78Z"
+              "WhenOpened": "2025-01-28T09:47:59.617Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ChangePasswordCommand.cs",
-              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
-              "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
-              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
-              "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAABCwC8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T15:23:28.33Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "ResetPasswordEndPoint.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ResetPassword\\ResetPasswordEndPoint.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ResetPassword\\ResetPasswordEndPoint.cs",
@@ -289,7 +313,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
+              "Title": "SendEamilQuary.cs",
+              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\Common\\CommonQuary\\SendEamilQuary.cs",
+              "RelativeDocumentMoniker": "TrelloCopy\\Features\\Common\\CommonQuary\\SendEamilQuary.cs",
+              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\Common\\CommonQuary\\SendEamilQuary.cs",
+              "RelativeToolTip": "TrelloCopy\\Features\\Common\\CommonQuary\\SendEamilQuary.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T11:55:40.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "RegisterUserEndpoint.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\RegisterUser\\RegisterUserEndpoint.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\RegisterUser\\RegisterUserEndpoint.cs",
@@ -301,7 +337,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\appsettings.json",
+              "RelativeDocumentMoniker": "TrelloCopy\\appsettings.json",
+              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\appsettings.json",
+              "RelativeToolTip": "TrelloCopy\\appsettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-28T09:50:07.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ChangePasswordCommand.cs",
+              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
+              "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
+              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
+              "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAIwC8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T15:23:28.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "RegisterUserRequestViewModel.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\RegisterUser\\RegisterUserRequestViewModel.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\RegisterUser\\RegisterUserRequestViewModel.cs",
@@ -313,7 +373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "BaseEndpoint.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Common\\BaseEndpoint.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Common\\BaseEndpoint.cs",
@@ -325,19 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ForgetPasswordEnpoint.cs",
-              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordEnpoint.cs",
-              "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordEnpoint.cs",
-              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordEnpoint.cs",
-              "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordEnpoint.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T10:03:46.608Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "RegisterUserCommand.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\RegisterUser\\Commands\\RegisterUserCommand.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\RegisterUser\\Commands\\RegisterUserCommand.cs",
@@ -349,31 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SendEamilQuary.cs",
-              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\Common\\CommonQuary\\SendEamilQuary.cs",
-              "RelativeDocumentMoniker": "TrelloCopy\\Features\\Common\\CommonQuary\\SendEamilQuary.cs",
-              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\Common\\CommonQuary\\SendEamilQuary.cs",
-              "RelativeToolTip": "TrelloCopy\\Features\\Common\\CommonQuary\\SendEamilQuary.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAnwA0AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T11:55:40.828Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ForgetPasswordViewModel.cs",
-              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordViewModel.cs",
-              "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordViewModel.cs",
-              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordViewModel.cs",
-              "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ForgetPassword\\ForgetPasswordViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T11:09:09.315Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "ReserrPasswordCommand.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ResetPassword\\Commands\\ReserrPasswordCommand.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ResetPassword\\Commands\\ReserrPasswordCommand.cs",
@@ -385,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "ResetPasswordRequestViewModel.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ResetPassword\\ResetPasswordRequestViewModel.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ResetPassword\\ResetPasswordRequestViewModel.cs",
@@ -397,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "ResetPasswordQuery.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ForgetPassword\\Queries\\ResetPasswordQuery.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ForgetPassword\\Queries\\ResetPasswordQuery.cs",
@@ -409,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "User.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Models\\User.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Models\\User.cs",
@@ -421,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Repository.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Data\\Repositories\\Repository.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Data\\Repositories\\Repository.cs",
@@ -433,19 +457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\appsettings.json",
-              "RelativeDocumentMoniker": "TrelloCopy\\appsettings.json",
-              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\appsettings.json",
-              "RelativeToolTip": "TrelloCopy\\appsettings.json",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBwAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-28T09:50:07.52Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\appsettings.Development.json",
               "RelativeDocumentMoniker": "TrelloCopy\\appsettings.Development.json",
@@ -457,7 +469,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "MailSettings.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Common\\MailSettings.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Common\\MailSettings.cs",
@@ -469,7 +481,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Program.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Program.cs",
@@ -481,7 +493,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "ApplicationModule.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Configrations\\ApplicationModule.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Configrations\\ApplicationModule.cs",
@@ -493,7 +505,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "BaseRequestHandler.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Common\\BaseRequestHandler.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Common\\BaseRequestHandler.cs",
@@ -505,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "ValueTask.cs",
               "DocumentMoniker": "C:\\Users\\Ahmed Balal\\AppData\\Local\\SourceServer\\11c6b946fd2ca90f5f82fb3c118c7aaacc0bf621380f5ab4edbb3c1bf87b8fae\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\ValueTask.cs",
               "ToolTip": "C:\\Users\\Ahmed Balal\\AppData\\Local\\SourceServer\\11c6b946fd2ca90f5f82fb3c118c7aaacc0bf621380f5ab4edbb3c1bf87b8fae\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\ValueTask.cs",
@@ -515,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "BaseEndpointParameters.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Common\\BaseEndpointParameters.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Common\\BaseEndpointParameters.cs",
@@ -539,19 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "20250128220620_init1.cs",
-              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Migrations\\20250128220620_init1.cs",
-              "RelativeDocumentMoniker": "TrelloCopy\\Migrations\\20250128220620_init1.cs",
-              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Migrations\\20250128220620_init1.cs",
-              "RelativeToolTip": "TrelloCopy\\Migrations\\20250128220620_init1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T22:06:21.521Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "RequestResult.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Common\\Views\\RequestResult.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Common\\Views\\RequestResult.cs",
@@ -564,18 +564,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 27,
-              "Title": "20250128222225_init2.cs",
-              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Migrations\\20250128222225_init2.cs",
-              "RelativeDocumentMoniker": "TrelloCopy\\Migrations\\20250128222225_init2.cs",
-              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Migrations\\20250128222225_init2.cs",
-              "RelativeToolTip": "TrelloCopy\\Migrations\\20250128222225_init2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T22:22:27.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Data\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Data\\Repositories\\UserRepository.cs",
@@ -704,7 +692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 39,
               "Title": "RabbitMQConsumerService.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\RabbitMQ\\RabbitMQConsumerService.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\RabbitMQ\\RabbitMQConsumerService.cs",
@@ -716,19 +704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "20250128131716_innt1.cs",
-              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Migrations\\20250128131716_innt1.cs",
-              "RelativeDocumentMoniker": "TrelloCopy\\Migrations\\20250128131716_innt1.cs",
-              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Migrations\\20250128131716_innt1.cs",
-              "RelativeToolTip": "TrelloCopy\\Migrations\\20250128131716_innt1.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T13:17:16.523Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 40,
               "Title": "TrelloCopy.csproj",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\TrelloCopy.csproj",
               "RelativeDocumentMoniker": "TrelloCopy\\TrelloCopy.csproj",
@@ -740,7 +716,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 41,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\Common\\Users\\DTOs\\UserDTO.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\Common\\Users\\DTOs\\UserDTO.cs",
@@ -752,7 +728,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 42,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Data\\Repositories\\IUserRepository.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Data\\Repositories\\IUserRepository.cs",
@@ -764,7 +740,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 45,
               "Title": "RabbitMQPuublisherService.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\RabbitMQ\\RabbitMQPuublisherService.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\RabbitMQ\\RabbitMQPuublisherService.cs",
@@ -776,7 +752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 44,
               "Title": "LogInUser.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\LogInUser\\LogInUser.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\LogInUser\\LogInUser.cs",
@@ -788,7 +764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 43,
               "Title": "LogInInfoDTO.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\LogInUser\\LogInInfoDTO.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\LogInUser\\LogInInfoDTO.cs",
@@ -800,7 +776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 46,
               "Title": "IsUserRegisteredQuery.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ConfirmUserRegistration\\Queries\\IsUserRegisteredQuery.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ConfirmUserRegistration\\Queries\\IsUserRegisteredQuery.cs",
@@ -812,19 +788,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "ConfirmEmailCommand.cs",
-              "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ConfirmUserRegistration\\Commands\\ConfirmEmailCommand.cs",
-              "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ConfirmUserRegistration\\Commands\\ConfirmEmailCommand.cs",
-              "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ConfirmUserRegistration\\Commands\\ConfirmEmailCommand.cs",
-              "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ConfirmUserRegistration\\Commands\\ConfirmEmailCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAABiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T09:47:59.617Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 47,
               "Title": "Feature.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Common\\Data\\Enums\\Feature.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Common\\Data\\Enums\\Feature.cs",
@@ -836,7 +800,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 48,
               "Title": "LogInUserCommand.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\LogInUser\\Commands\\LogInUserCommand.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\LogInUser\\Commands\\LogInUserCommand.cs",
@@ -848,7 +812,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 49,
               "Title": "GetUserLogInInfoQuery.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\LogInUser\\Queries\\GetUserLogInInfoQuery.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\LogInUser\\Queries\\GetUserLogInInfoQuery.cs",

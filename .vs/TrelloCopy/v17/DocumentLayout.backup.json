@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\jsp\\TrelloCopy\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\chamgepassword\\commands\\changepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\chamgepassword\\commands\\changepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\chamgepassword\\changepasswordrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\chamgepassword\\changepasswordrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\chamgepassword\\queries\\isuserexistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\chamgepassword\\queries\\isuserexistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\chamgepassword\\commands\\changepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|solutionrelative:trellocopy\\features\\usermanagement\\chamgepassword\\commands\\changepasswordcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5BD6D85-ABBD-4C8C-8963-D12BCF63D098}|TrelloCopy\\TrelloCopy.csproj|f:\\jsp\\trellocopy\\trellocopy\\features\\usermanagement\\registeruser\\registeruserendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -220,11 +220,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ChangePasswordRequestViewModel.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordRequestViewModel.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordRequestViewModel.cs",
@@ -237,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ChangePasswordEndPoint.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordEndPoint.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordEndPoint.cs",
@@ -250,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IsUserExistQuery.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
@@ -263,13 +263,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ChangePasswordCommand.cs",
               "DocumentMoniker": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
               "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
               "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAYwC8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-29T15:23:28.33Z",
               "EditorCaption": ""

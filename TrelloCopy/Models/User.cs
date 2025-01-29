@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TrelloCopy.Models;
@@ -10,14 +11,19 @@ public class User : BaseModel
     public string PhoneNo { get; set; }
     public string Country { get; set; }
     public bool IsActive { get; set; } = true;
+
+    [StringLength(6)] 
+    public string? ResetPassword { get; set; }   
+
+    public DateTime?  ResetPasswowrdConfirnation { get; set; }
     
     public bool TwoFactorAuthEnabled { get; set; }
     public string? TwoFactorAuthsecretKey { get; set; }
 
     public bool IsEmailConfirmed { get; set; } = false;
     public string? ConfirmationToken { get; set; }
-    
-    public int RoleID { get; set; }
+
+    public int ? RoleID { get; set; } = 2;
     public Role Role { get; set; }
     
     public ICollection<UserFeature> UserFeatures { get; set; }

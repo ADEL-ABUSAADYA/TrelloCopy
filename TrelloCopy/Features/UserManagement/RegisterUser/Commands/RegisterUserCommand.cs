@@ -1,11 +1,15 @@
+using FoodApp.Api.Settings;
 using MailKit.Net.Smtp;
+using MailKit.Security;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using MimeKit;
 using TrelloCopy.Common;
 using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Common.Views;
-using TrelloCopy.Features.userManagement.RegisterUser.Queries;
+using TrelloCopy.Features.Common.CommonQuary;
+using TrelloCopy.Features.UserManagement.RegisterUser.Queries;
 using TrelloCopy.Models;
 
 namespace TrelloCopy.Features.userManagement.RegisterUser.Commands;
@@ -14,8 +18,11 @@ public record RegisterUserCommand(string email, string password, string name, st
 
 public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCommand, RequestResult<bool>>
 {
-    public RegisterUserCommandHandler(UserBaseRequestHandlerParameters parameters) : base(parameters)
+    readonly MailSettings mailSettings;
+    public RegisterUserCommandHandler(UserBaseRequestHandlerParameters parameters , IOptions<MailSettings> options) : base(parameters)
     {
+         
+        mailSettings = options.Value;
     }
 
     public async override Task<RequestResult<bool>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
@@ -31,7 +38,7 @@ public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCom
         {
             Email = request.email,
             Password = password,
-            RoleID = 3,
+            RoleID = 2,
             Name = request.name,
             PhoneNo = request.phoneNo,
             Country = request.country,
@@ -41,65 +48,21 @@ public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCom
         
        
         var userID = await _userRepository.AddAsync(user);
-        await _userRepository.SaveChangesAsync();
-        
+       
         if (userID < 0)
         return RequestResult<bool>.Failure(ErrorCode.UnKnownError);
+
+        await _userRepository.SaveChangesAsync();
         
         
-        var confirmationLink = $"https://yourdomain.com/confirm?email={user.Email}&token={user.ConfirmationToken}";
         
-        var emailSent = await SendConfirmationEmail(user.Email, user.Name, confirmationLink);
+        var confirmationLink = $"https://localhost:7015/confirm?email={user.Email}&token={user.ConfirmationToken}";
+        
+        var emailSent = await _mediator.Send(new SendEamilQuary(user.Email, user.Name, confirmationLink));
         if (!emailSent.isSuccess)
             return RequestResult<bool>.Failure(ErrorCode.EmailNotSent);
 
         return RequestResult<bool>.Success(true);
     }
     
-    private async Task<RequestResult<bool>> SendConfirmationEmail(string email, string name, string confirmationLink)
-    {
-        var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("adel", "adel.fantasy15@gmail.com"));
-        message.To.Add(new MailboxAddress(name, email));
-        message.Subject = "UpSkilling Final Project";
-
-        // Create multipart content for both plain text and HTML
-        var bodyBuilder = new BodyBuilder
-        {
-            TextBody = $"Please confirm your registration by clicking the following link: {confirmationLink}",
-            HtmlBody = $"<p>Hello {name}!</p><p>Please confirm your registration by clicking <a href='{confirmationLink}'>this link</a>.</p>"
-        };
-
-        message.Body = bodyBuilder.ToMessageBody();
-
-        try
-        {
-            using (var client = new SmtpClient())
-            {
-                // Set the timeout for connection and authentication
-                client.Timeout = 10000;  // Timeout after 10 seconds
-            
-                // Connect using StartTLS for security
-                await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-
-                // Authenticate with the provided credentials
-                await client.AuthenticateAsync("adel.fantasy15@gmail.com", "Dolla111");
-
-                // Send the email
-                await client.SendAsync(message);
-                await client.DisconnectAsync(true);
-            }
-
-            return RequestResult<bool>.Success(true);
-        }
-        catch (Exception ex)
-        {
-            // Log the detailed exception message for debugging
-            Console.WriteLine($"Error sending email: {ex.Message}");
-            Console.WriteLine($"Stack Trace: {ex.StackTrace}");
-
-            // Return failure with error details
-            return RequestResult<bool>.Failure(ErrorCode.UnKnownError, ex.Message);
-        }
-    }
-}
+ }

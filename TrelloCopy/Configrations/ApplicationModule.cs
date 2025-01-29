@@ -18,7 +18,6 @@ using TrelloCopy.Data.Repositories;
 using TrelloCopy.Features.Common.Users.DTOs;
 using TrelloCopy.Features.UserManagement.ConfirmUserRegistration;
 using TrelloCopy.Features.UserManagement.RegisterUser;
-using TrelloCopy.Features.userManagement.RegisterUser.Queries;
 using TrelloCopy.Helpers;
 using TrelloCopy.Models;
 using Module = Autofac.Module;
@@ -40,13 +39,13 @@ namespace TrelloCopy.Configrations
             return new Context(options);
         }).As<Context>().InstancePerLifetimeScope();
 
-        // Register MediatR
-        builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-               .AsClosedTypesOf(typeof(IRequestHandler<,>))
-               .AsImplementedInterfaces()
-               .InstancePerLifetimeScope();
+            // Register MediatR
+            builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
+                    .AsClosedTypesOf(typeof(IRequestHandler<,>))
+                    .AsImplementedInterfaces()
+                    .InstancePerLifetimeScope();
 
-        builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                .AsImplementedInterfaces()
                .InstancePerLifetimeScope();
 
@@ -61,8 +60,12 @@ namespace TrelloCopy.Configrations
                .AsSelf()
                .InstancePerLifetimeScope();
 
-        // Register scoped endpoints
-        builder.RegisterType<RegisterUserEndpoint>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<TokenHelper>()
+                           .AsSelf() // Directly resolves TokenHelper
+                           .InstancePerLifetimeScope();
+
+            // Register scoped endpoints
+            builder.RegisterType<RegisterUserEndpoint>().AsSelf().InstancePerLifetimeScope();
         builder.RegisterType<ConfirmEmailEndpoint>().AsSelf().InstancePerLifetimeScope();
 
         // Register repositories
@@ -70,8 +73,19 @@ namespace TrelloCopy.Configrations
         builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
         builder.RegisterType<Repository<BaseModel>>().As<IRepository<BaseModel>>().InstancePerLifetimeScope();
 
-        // Register base request handler parameters
-        builder.RegisterType<UserBaseRequestHandlerParameters>().AsSelf().InstancePerLifetimeScope();
+           
+
+            // Register base request handler parameters
+            builder.Register(context =>
+            {
+                return new UserBaseRequestHandlerParameters(
+                    context.Resolve<IMediator>(),
+                    context.Resolve<IUserRepository>(),
+                    context.Resolve<TokenHelper>(),
+                    context.Resolve<IHttpContextAccessor>()
+                );
+            }).AsSelf().InstancePerLifetimeScope();
+        
         builder.RegisterType<BaseRequestHandlerParameters>().AsSelf().InstancePerLifetimeScope();
 
         // Register JWT authentication

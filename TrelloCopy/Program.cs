@@ -3,6 +3,7 @@ using System.Text;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FluentValidation;
+using FoodApp.Api.Settings;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -44,7 +45,8 @@ public class Program
         builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
         builder.Services.AddMediatR(typeof(Program).Assembly);
         builder.Services.AddAuthorization();
-
+        builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
         var app = builder.Build();
 
         app.UseAuthentication();
@@ -62,9 +64,9 @@ public class Program
 
         app.MapControllers();
 
-        app.UseMiddleware<GlobalErrorHandlerMiddleware>();
+       // app.UseMiddleware<GlobalErrorHandlerMiddleware>();
         
-        app.UseMiddleware<TransactionMiddleware>();
+       app.UseMiddleware<TransactionMiddleware>();
         
         app.Run();
 

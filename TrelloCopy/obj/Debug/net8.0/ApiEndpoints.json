@@ -1,0 +1,184 @@
+[
+  {
+    "ContainingType": "TrelloCopy.Features.UserManagement.ForgetPassword.ForgetPasswordEnpoint",
+    "Method": "FrogetPassord",
+    "RelativePath": "api/ForgetPasswordEnpoint",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TrelloCopy.Common.Views.EndpointResponse\u00601[[Microsoft.AspNetCore.Mvc.IActionResult, Microsoft.AspNetCore.Mvc.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TrelloCopy.Features.UserManagement.ChangePassword.ChangePasswordEndPoint",
+    "Method": "ChangePassword",
+    "RelativePath": "ChangePasswordEndPoint/ChangePassword",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "viewModel",
+        "Type": "TrelloCopy.Features.UserManagement.ChangePassword.ChangePasswordRequestViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TrelloCopy.Common.Views.EndpointResponse\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TrelloCopy.Features.UserManagement.ConfirmUserRegistration.ConfirmEmailEndpoint",
+    "Method": "ConfirmEmail",
+    "RelativePath": "ConfirmEmailEndpoint/ConfirmEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "viewmodel",
+        "Type": "TrelloCopy.Features.UserManagement.ConfirmUserRegistration.ConfirmEmailRequestViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TrelloCopy.Common.Views.EndpointResponse\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TrelloCopy.Features.UserManagement.TwoFactorAuthLink.Generate2FAQRCodeEndpoint",
+    "Method": "GetLink",
+    "RelativePath": "Generate2FAQRCodeEndpoint/GetLink",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "viewmodel",
+        "Type": "TrelloCopy.Features.UserManagement.LogInUser.LogInInfoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TrelloCopy.Common.Views.EndpointResponse\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TrelloCopy.Features.UserManagement.RegisterUser.RegisterUserEndpoint",
+    "Method": "RegisterUser",
+    "RelativePath": "RegisterUserEndpoint/RegisterUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "viewmodel",
+        "Type": "TrelloCopy.Features.UserManagement.RegisterUser.RegisterUserRequestViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TrelloCopy.Common.Views.EndpointResponse\u00601[[Microsoft.AspNetCore.Mvc.IActionResult, Microsoft.AspNetCore.Mvc.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TrelloCopy.Features.UserManagement.ResendRegistrationEmail.ReSendRegistrationEmailEndpoint",
+    "Method": "ReSendEmail",
+    "RelativePath": "ReSendRegistrationEmailEndpoint/ReSendEmail",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "viewmodel",
+        "Type": "TrelloCopy.Features.UserManagement.ResendRegistrationEmail.ReSendRegistrationEmailRequestViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TrelloCopy.Common.Views.EndpointResponse\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TrelloCopy.Features.UserManagement.ResetPassword.ResetPasswordEndPoint",
+    "Method": "ResetPassword",
+    "RelativePath": "ResetPasswordEndPoint/ResetPassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "parameters",
+        "Type": "TrelloCopy.Features.UserManagement.ResetPassword.ResetPasswordRequestViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TrelloCopy.Common.Views.EndpointResponse\u00601[[Microsoft.AspNetCore.Mvc.IActionResult, Microsoft.AspNetCore.Mvc.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

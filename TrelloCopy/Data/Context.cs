@@ -5,7 +5,7 @@ using TrelloCopy.Models;
 namespace TrelloCopy.Data;
 public class Context : DbContext
 {
-    public Context(DbContextOptions options) : base(options)
+    public Context(DbContextOptions<Context> options) : base(options)
     {
     }
 
@@ -21,14 +21,14 @@ public class Context : DbContext
 
 
 
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //     optionsBuilder.UseSqlServer("Data Source =.; Initial Catalog = HotelReservationSystem; Integrated Security = True; Connect Timeout = 30; Encrypt=True;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False")
-    //         .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
-    //         .LogTo(log => Debug.WriteLine(log), LogLevel.Information)
-    //         .EnableSensitiveDataLogging();
-    // }
-    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer("Data Source =desktop-vp7hi13; Initial Catalog = TrelloCopy; Integrated Security = True; Connect Timeout = 30; Encrypt=True;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False")
+            .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+            .LogTo(log => Debug.WriteLine(log), LogLevel.Information)
+            .EnableSensitiveDataLogging();
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // User to UserAssignedProjects
@@ -51,6 +51,24 @@ public class Context : DbContext
             .WithMany(u => u.CreatedProjects)
             .HasForeignKey(p => p.CreatorID)
             .OnDelete(DeleteBehavior.NoAction);  // Avoid cascade delete
+
+
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+        {
+            if (entityType.ClrType != typeof(User) && typeof(BaseModel).IsAssignableFrom(entityType.ClrType))
+            {
+                modelBuilder.Entity(entityType.ClrType)
+                    .Property("CreatedBy")
+                    .IsRequired();
+
+                modelBuilder.Entity(entityType.ClrType)
+                    .Property("UpdatedBy")
+                    .IsRequired();
+            }
+        }
+
+
+       
     }
 }
 //Data Source =.; Initial Catalog = HotelReservationSystem; Integrated Security = True; Connect Timeout = 30; Encrypt=True;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False

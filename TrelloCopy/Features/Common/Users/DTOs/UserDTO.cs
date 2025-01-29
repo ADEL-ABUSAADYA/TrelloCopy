@@ -1,3 +1,3 @@
 namespace TrelloCopy.Features.Common.Users.DTOs;
 
-public record UserDTO();
+public record UserDTO();                         

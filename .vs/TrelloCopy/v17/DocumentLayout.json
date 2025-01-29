@@ -220,8 +220,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -232,8 +236,7 @@
               "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordRequestViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T15:23:44.873Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-29T15:23:44.873Z"
             },
             {
               "$type": "Document",
@@ -245,8 +248,7 @@
               "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\ChangePasswordEndPoint.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T15:23:43.389Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-29T15:23:43.389Z"
             },
             {
               "$type": "Document",
@@ -258,8 +260,7 @@
               "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Queries\\IsUserExistQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T15:23:38.78Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-29T15:23:38.78Z"
             },
             {
               "$type": "Document",
@@ -269,7 +270,7 @@
               "RelativeDocumentMoniker": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
               "ToolTip": "F:\\jsp\\TrelloCopy\\TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
               "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\ChamgePassword\\Commands\\ChangePasswordCommand.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAYwC8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAABCwC8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-29T15:23:28.33Z",
               "EditorCaption": ""
@@ -296,8 +297,7 @@
               "RelativeToolTip": "TrelloCopy\\Features\\UserManagement\\RegisterUser\\RegisterUserEndpoint.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T09:52:30.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-28T09:52:30.699Z"
             },
             {
               "$type": "Document",

@@ -21,17 +21,10 @@ public class Context : DbContext
 
 
 
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //     optionsBuilder.UseSqlServer("Data Source =.; Initial Catalog = HotelReservationSystem; Integrated Security = True; Connect Timeout = 30; Encrypt=True;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False")
-    //         .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
-    //         .LogTo(log => Debug.WriteLine(log), LogLevel.Information)
-    //         .EnableSensitiveDataLogging();
-    // }
-    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // User to UserAssignedProjects
+        base.OnModelCreating(modelBuilder);
+        SeedData(modelBuilder);
         modelBuilder.Entity<UserAssignedProject>()
             .HasOne(uap => uap.User)
             .WithMany(u => u.UserAssignedProjects)
@@ -52,5 +45,30 @@ public class Context : DbContext
             .HasForeignKey(p => p.CreatorID)
             .OnDelete(DeleteBehavior.NoAction);  // Avoid cascade delete
     }
+
+    private void SeedData(ModelBuilder modelBuilder)
+    {
+        // Seed roles
+        modelBuilder.Entity<Role>().HasData(
+            new Role { ID = 1, Name = "Admin" },
+            new Role { ID = 2, Name = "User" }
+        );
+
+        // Seed admin user
+        modelBuilder.Entity<User>().HasData(
+            new User
+            {
+                ID = 1, // Make sure the ID is set explicitly, as auto-generation might conflict.
+                Email = "upskillingfinalproject@gmail.com",
+                Password = "Admin123", // Ensure to hash passwords properly in your real app!
+                Name = "Admin User",
+                PhoneNo = "1234567890",
+                Country = "CountryName",
+                IsActive = true,
+                TwoFactorAuthEnabled = false,
+                IsEmailConfirmed = true,
+                RoleID = 1 // Admin role
+            }
+        );
+    }
 }
-//Data Source =.; Initial Catalog = HotelReservationSystem; Integrated Security = True; Connect Timeout = 30; Encrypt=True;Trust Server Certificate=True;Application Intent = ReadWrite; Multi Subnet Failover=False

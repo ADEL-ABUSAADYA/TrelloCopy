@@ -1,27 +1,22 @@
 using MediatR;
+using TrelloCopy.Common;
 using TrelloCopy.Common.Data.Enums;
-using TrelloCopy.Data.Repositories;
 using TrelloCopy.Models;
 
-namespace TrelloCopy.Features.userManagement.AddUserFeature.Queries;
-
-public record HasAccessQuery(int ID, Feature Featuer) : IRequest<bool>;
-
-public class HasAccessQueryHandler : IRequestHandler<HasAccessQuery, bool>
+namespace TrelloCopy.Features.userManagement.AddUserFeature.Queries
 {
-    IRepository<UserFeature> _repository;
-    IMediator _mediator;
-    public HasAccessQueryHandler(IMediator mediator, IRepository<UserFeature> repository)
-    {
-        _repository = repository;
-        _mediator = mediator;
-    }
+    public record HasAccessQuery(int ID, Feature Feature) : IRequest<bool>;
 
-    public async Task<bool> Handle(HasAccessQuery request, CancellationToken cancellationToken)
+    public class HasAccessQueryHandler : BaseRequestHandler<HasAccessQuery, bool, UserFeature>
     {
-        var hasFeature = await _repository.AnyAsync(
-             uf => uf.UserID == request.ID && uf.Feature == request.Featuer);
-
-        return hasFeature;
+        public HasAccessQueryHandler(BaseRequestHandlerParameters<UserFeature> parameters) : base(parameters)
+        {
+        }
+        public override async Task<bool> Handle(HasAccessQuery request, CancellationToken cancellationToken)
+        {
+            var hasFeature = await _repository.AnyAsync(
+                uf => uf.UserID == request.ID && uf.Feature == request.Feature);
+            return hasFeature;
+        }
     }
 }

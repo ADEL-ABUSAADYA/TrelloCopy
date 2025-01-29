@@ -11,5 +11,6 @@ public enum ErrorCode
     UserNotFound,
     UserAlreadyExist,
     EmailNotSent,
-    UserAlreadyRegistered
+    UserAlreadyRegistered,
+    Uasr2FAIsNotEnabled
 }

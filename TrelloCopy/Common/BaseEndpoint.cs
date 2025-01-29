@@ -21,11 +21,7 @@ public class BaseEndpoint<TRequest, TResponse> : ControllerBase
         _mediator = parameters.Mediator;
         _validator = parameters.Validator;
         
-        _userInfo = new UserInfo
-        {
-            ID = int.TryParse(User?.FindFirst("ID")?.Value, out var userId) ? userId : 0,
-            Name = User?.Identity?.Name
-        };
+        _userInfo = parameters.UserInfo;
     }
 
     protected EndpointResponse<TResponse> ValidateRequest(TRequest request)

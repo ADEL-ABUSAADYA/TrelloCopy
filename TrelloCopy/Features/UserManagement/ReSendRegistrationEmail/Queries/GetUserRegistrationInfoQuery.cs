@@ -10,15 +10,15 @@ namespace TrelloCopy.Features.UserManagement.ReSendRegistrationEmail.Queries;
 
 public record GetUserRegistrationInfoQuery(string email) : IRequest<RequestResult<RegistrationInfoDTO>>;
 
-public class GetUserRegistrationInfoQueryHandler : UserBaseRequestHandler<GetUserRegistrationInfoQuery, RequestResult<RegistrationInfoDTO>>
+public class GetUserRegistrationInfoQueryHandler : BaseRequestHandler<GetUserRegistrationInfoQuery, RequestResult<RegistrationInfoDTO>, User>
 {
-    public GetUserRegistrationInfoQueryHandler(UserBaseRequestHandlerParameters parameters) : base(parameters)
+    public GetUserRegistrationInfoQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
     {
     }
 
     public override async Task<RequestResult<RegistrationInfoDTO>> Handle(GetUserRegistrationInfoQuery request, CancellationToken cancellationToken)
     {
-        var result = await _userRepository.Get(u => u.Email == request.email).Select(u => new RegistrationInfoDTO
+        var result = await _repository.Get(u => u.Email == request.email).Select(u => new RegistrationInfoDTO
         {
             Name = u.Name,
             ConfirmationToken = u.ConfirmationToken,

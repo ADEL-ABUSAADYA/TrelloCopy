@@ -3,14 +3,15 @@ using Microsoft.AspNetCore.Identity;
 using TrelloCopy.Common;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Features.userManagement.LogInUser.Queries;
+using TrelloCopy.Models;
 
 namespace TrelloCopy.Features.UserManagement.LogInUser.Commands;
 
 public record LogInUserCommand(string Email, string Password) : IRequest<RequestResult<string>>;
 
-public class LogInUserCommandHandler : UserBaseRequestHandler<LogInUserCommand, RequestResult<string>>
+public class LogInUserCommandHandler : BaseRequestHandler<LogInUserCommand, RequestResult<string>, User>
 {
-    public LogInUserCommandHandler(UserBaseRequestHandlerParameters parameters) : base(parameters)
+    public LogInUserCommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
     {
     }
 

@@ -8,9 +8,9 @@ namespace TrelloCopy.Features.UserManagement.ConfirmUserRegistration.Commands;
 
 public record ConfirmEmailCommand(string email, string token) : IRequest<RequestResult<bool>>;
 
-public class ConfirmEmailHandler : UserBaseRequestHandler<ConfirmEmailCommand, RequestResult<bool>>
+public class ConfirmEmailHandler : BaseRequestHandler<ConfirmEmailCommand, RequestResult<bool>, User>
 {
-    public ConfirmEmailHandler(UserBaseRequestHandlerParameters parameters) : base(parameters)
+    public ConfirmEmailHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
     {
     }
 
@@ -26,10 +26,10 @@ public class ConfirmEmailHandler : UserBaseRequestHandler<ConfirmEmailCommand, R
             user.IsEmailConfirmed = true;
             user.ConfirmationToken = null;
 
-            var result = await _userRepository.SaveIncludeAsync(user, nameof(User.IsEmailConfirmed),
+            var result = await _repository.SaveIncludeAsync(user, nameof(User.IsEmailConfirmed),
                 nameof(User.ConfirmationToken));
 
-            await _userRepository.SaveChangesAsync();
+            await _repository.SaveChangesAsync();
             return RequestResult<bool>.Success(result);
         }
 

@@ -12,9 +12,9 @@ namespace TrelloCopy.Features.userManagement.RegisterUser.Commands;
 
 public record RegisterUserCommand(string email, string password, string name, string phoneNo, string country) : IRequest<RequestResult<bool>>;
 
-public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCommand, RequestResult<bool>>
+public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand, RequestResult<bool>, User>
 {
-    public RegisterUserCommandHandler(UserBaseRequestHandlerParameters parameters) : base(parameters) { }
+    public RegisterUserCommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters) { }
 
     public async override Task<RequestResult<bool>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
@@ -38,8 +38,8 @@ public class RegisterUserCommandHandler : UserBaseRequestHandler<RegisterUserCom
         };
         
        
-        var userID = await _userRepository.AddAsync(user);
-        await _userRepository.SaveChangesAsync();
+        var userID = await _repository.AddAsync(user);
+        await _repository.SaveChangesAsync();
         
         if (userID < 0)
         return RequestResult<bool>.Failure(ErrorCode.UnKnownError);

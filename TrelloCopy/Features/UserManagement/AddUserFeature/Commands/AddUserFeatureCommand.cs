@@ -8,9 +8,9 @@ namespace TrelloCopy.Features.userManagement.AddUserFeature.Commands;
 
 public record AddUserFeatureCommand(int userID, Feature feature) : IRequest<RequestResult<bool>>;
 
-public class AddUserFeatureCommandHandler : BaseRequestHandler<AddUserFeatureCommand, RequestResult<bool>>
+public class AddUserFeatureCommandHandler : BaseRequestHandler<AddUserFeatureCommand, RequestResult<bool>, UserFeature>
 {
-    public AddUserFeatureCommandHandler(BaseRequestHandlerParameters parameters ): base(parameters) { }
+    public AddUserFeatureCommandHandler(BaseRequestHandlerParameters<UserFeature> parameters ): base(parameters) { }
 
     public async override Task<RequestResult<bool>> Handle(AddUserFeatureCommand request, CancellationToken cancellationToken)
     {

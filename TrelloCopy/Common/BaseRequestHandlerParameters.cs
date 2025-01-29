@@ -1,27 +1,33 @@
-﻿using System.Security.Claims;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Data.Repositories;
+using TrelloCopy.Helpers;
 using TrelloCopy.Models;
 
-namespace TrelloCopy.Common;
-public class BaseRequestHandlerParameters
+namespace TrelloCopy.Common
 {
-    readonly IMediator _mediator;
-    readonly IRepository<BaseModel> _repository;
-
-    public IMediator Mediator => _mediator;
-    public IRepository<BaseModel> Repository => _repository;
-    public UserInfo UserInfo { get; set; }
-
-    
-    public BaseRequestHandlerParameters(IMediator mediator, IRepository<BaseModel> repository, UserInfo userInfo)
+    public class BaseRequestHandlerParameters<TEntity> where TEntity : BaseModel
     {
-        _mediator = mediator;
-        _repository = repository;
-        UserInfo = userInfo;
-    }
-    
-}
+        private readonly IMediator _mediator;
+        private readonly IRepository<TEntity> _repository;
+        private readonly TokenHelper _tokenHelper;
+        private readonly UserInfo _userInfo;
 
+        public IMediator Mediator => _mediator;
+        public IRepository<TEntity> Repository => _repository;
+        public TokenHelper TokenHelper => _tokenHelper;
+        public UserInfo UserInfo => _userInfo;
+        
+
+        // Constructor accepts the generic repository type for flexibility
+        public BaseRequestHandlerParameters(IMediator mediator, IRepository<TEntity> repository, UserInfo userInfo, TokenHelper tokenHelper)
+        {
+            _mediator = mediator;
+            _repository = repository;
+            _userInfo = userInfo;
+            _tokenHelper = tokenHelper;
+            
+        }
+    }
+}

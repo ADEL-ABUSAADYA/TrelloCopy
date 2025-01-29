@@ -5,7 +5,7 @@ using TrelloCopy.Models;
 
 namespace TrelloCopy.Data.Repositories
 {
-    public interface IRepository<Entity> where Entity : BaseModel
+    public interface IRepository<Entity> where Entity : BaseModel 
     {
         DbSet<Entity> Query();
         void Add(Entity entity);

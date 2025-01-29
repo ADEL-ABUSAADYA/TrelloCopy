@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Common\Users\Queries\" />
+      <Folder Include="Features\UserManagement\GetUser2FALink\Queries\" />
     </ItemGroup>
 
 </Project>

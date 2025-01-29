@@ -5,15 +5,16 @@ using TrelloCopy.Common;
 using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Features.UserManagement.ReSendRegistrationEmail.Queries;
+using TrelloCopy.Models;
 
 
 namespace TrelloCopy.Features.UserManagement.ReSendRegistrationEmail.Commands;
 
 public record ReSendRegistrationEmailCommand(string email) : IRequest<RequestResult<bool>>;
 
-public class ReSendRegistrationEmailCommandHandler : UserBaseRequestHandler<ReSendRegistrationEmailCommand, RequestResult<bool>>
+public class ReSendRegistrationEmailCommandHandler : BaseRequestHandler<ReSendRegistrationEmailCommand, RequestResult<bool>, User>
 {
-    public ReSendRegistrationEmailCommandHandler(UserBaseRequestHandlerParameters parameters) : base(parameters)
+    public ReSendRegistrationEmailCommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
     {
     }
 

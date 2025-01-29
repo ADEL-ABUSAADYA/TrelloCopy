@@ -15,6 +15,7 @@ namespace TrelloCopy.Common.Data.Enums
         DeleteUserByID = 7,
         DeleteUserByEmail = 8,
         DeleteUserByName = 9,
+        ActivateUser2FA = 10,
         
         // group 100 - 200
         GetAllGroups = 101,

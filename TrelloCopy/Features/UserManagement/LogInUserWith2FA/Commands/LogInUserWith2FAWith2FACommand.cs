@@ -4,7 +4,8 @@ using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Features.userManagement.LogInUser.Queries;
 using TrelloCopy.Models;
-using OtpNet; // Install-Package OtpNet
+using OtpNet;
+using TrelloCopy.Features.userManagement.LogInUserWith2FA.Queries; // Install-Package OtpNet
 
 namespace TrelloCopy.Features.UserManagement.LogInUserWith2FA.Commands;
 
@@ -18,7 +19,7 @@ public class LogInUserWith2FACommandHandler : BaseRequestHandler<LogInUserWith2F
 
     public override async Task<RequestResult<string>> Handle(LogInUserWith2FACommand request, CancellationToken cancellationToken)
     {
-        var userInfo = await _mediator.Send(new GetUserLogInInfoQuery(request.Email));
+        var userInfo = await _mediator.Send(new GetUserLogInInfoWith2FAQuery(request.Email));
         if (!userInfo.isSuccess)
         {
             return RequestResult<string>.Failure(userInfo.errorCode, userInfo.message);

@@ -26,7 +26,10 @@ public class LogInUserCommandHandler : BaseRequestHandler<LogInUserCommand, Requ
         var isPasswordMached = CheckPassword(request.Password, userInfo.data.hashedPassword);
         if (!isPasswordMached)
             return RequestResult<string>.Failure(userInfo.errorCode, "password is incorrect.");
-        
+        if (!userInfo.data.IsEmailConfirmed)
+        {
+            return RequestResult<string>.Failure(userInfo.errorCode, "email is not confirmed.");
+        }
         if (userInfo.data.ID > 0 && !userInfo.data.Is2FAEnabled)
         {
             var token = _tokenHelper.GenerateToken(userInfo.data.ID);

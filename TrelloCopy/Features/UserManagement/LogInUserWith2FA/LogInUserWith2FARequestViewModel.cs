@@ -1,12 +1,9 @@
 using FluentValidation;
 
-namespace TrelloCopy.Features.UserManagement.LogInUser;
-
-public record LogInInfoDTO(int ID, bool Is2FAEnabled, string hashedPassword, string TwoFactorAuthsecretKey);
-
-public class LogInInfoDTOValidator : AbstractValidator<LogInInfoDTO>
+public record LogInUserWith2FARequestViewModel(string Email, string Otp);
+public class LogInUserWith2FARequestViewModelValidator : AbstractValidator<LogInUserWith2FARequestViewModel>
 {
-    public LogInInfoDTOValidator()
+    public LogInUserWith2FARequestViewModelValidator()
     {
         // RuleFor(x => x.Email)
         //     .NotEmpty().WithMessage("Email is required.")

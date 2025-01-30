@@ -36,16 +36,29 @@ public class Program
                     ValidateIssuerSigningKey = true,
                     ValidateLifetime = true,
                 };
+            })
+            .AddJwtBearer("2FA", opts =>
+            {
+                var otpKey = Encoding.ASCII.GetBytes(jwtSettings.GetValue<string>("OTPSettings:SecretKey"));
+                opts.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = jwtSettings.GetValue<string>("OTPSettings:Issuer"),
+                    ValidAudience = jwtSettings.GetValue<string>("OTPSettings:Audience"),
+                    IssuerSigningKey = new SymmetricSecurityKey(otpKey),
+                    ValidateAudience = true,
+                    ValidateIssuer = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                };
             });
-        builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         builder.Services.AddAuthorization();
+        builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
         builder.Services.AddMediatR(typeof(Program).Assembly);
-        builder.Services.AddAuthorization();
         builder.Services.AddControllersWithViews(opt => opt.Filters.Add<UserInfoFilter>());
         
         var app = builder.Build();

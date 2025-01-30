@@ -29,7 +29,7 @@ public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand
         {
             Email = request.email,
             Password = password,
-            RoleID = 3,
+            RoleID = 2,
             Name = request.name,
             PhoneNo = request.phoneNo,
             Country = request.country,
@@ -45,7 +45,7 @@ public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand
         return RequestResult<bool>.Failure(ErrorCode.UnKnownError);
         
         
-        var confirmationLink = $"https://yourdomain.com/confirm?email={user.Email}&token={user.ConfirmationToken}";
+        var confirmationLink = $"{user.ConfirmationToken}";
         
         var emailSent = await SendConfirmationEmail(user.Email, user.Name, confirmationLink);
         if (!emailSent.isSuccess)

@@ -18,7 +18,6 @@ public class LogInUserCommandHandler : BaseRequestHandler<LogInUserCommand, Requ
     public override async Task<RequestResult<string>> Handle(LogInUserCommand request, CancellationToken cancellationToken)
     {
         
-               
         var userInfo = await _mediator.Send(new GetUserLogInInfoQuery(request.Email));
         if (!userInfo.isSuccess)
         {
@@ -28,14 +27,15 @@ public class LogInUserCommandHandler : BaseRequestHandler<LogInUserCommand, Requ
         if (!isPasswordMached)
             return RequestResult<string>.Failure(userInfo.errorCode, "password is incorrect.");
         
-        if (userInfo.data.ID != 0 && !userInfo.data.IsAuthenticationEnabled)
+        if (userInfo.data.ID > 0 && !userInfo.data.Is2FAEnabled)
         {
             var token = _tokenHelper.GenerateToken(userInfo.data.ID);
             return RequestResult<string>.Success(token);
         }
-        if (userInfo.data.IsAuthenticationEnabled)
+        if (userInfo.data.ID > 0 && userInfo.data.Is2FAEnabled)
         {
-            return RequestResult<string>.Success(null, "Two-factor authentication required.");
+            var token2fa = _tokenHelper.Generate2FALoginToken(userInfo.data.ID);
+            return RequestResult<string>.Success(token2fa);
         }
 
         return RequestResult<string>.Failure(userInfo.errorCode, userInfo.message);

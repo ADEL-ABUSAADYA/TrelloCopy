@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Identity;
 using TrelloCopy.Models;
 
 namespace TrelloCopy.Data;
@@ -50,17 +51,18 @@ public class Context : DbContext
     {
         // Seed roles
         modelBuilder.Entity<Role>().HasData(
-            new Role { ID = 1, Name = "Admin" },
-            new Role { ID = 2, Name = "User" }
+            new Role { ID = 1, Name = "Admin", Description = "Administrator Role" },
+            new Role { ID = 2, Name = "User", Description = "Standard User Role" }
         );
 
-        // Seed admin user
+        PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
+        var password = passwordHasher.HashPassword(null, "Admin123");
         modelBuilder.Entity<User>().HasData(
             new User
             {
                 ID = 1, // Make sure the ID is set explicitly, as auto-generation might conflict.
                 Email = "upskillingfinalproject@gmail.com",
-                Password = "Admin123", // Ensure to hash passwords properly in your real app!
+                Password = password, // Ensure to hash passwords properly in your real app!
                 Name = "Admin User",
                 PhoneNo = "1234567890",
                 Country = "CountryName",

@@ -38,6 +38,67 @@ namespace TrelloCopy.Helpers
 
             return tokenHandler.WriteToken(token);
         }
-    }
+        
+        public string Generate2FALoginToken(int userId)
+        {
+            var key = Encoding.ASCII.GetBytes(_configuration["OTPSettings:SecretKey"]);
+            var issuer = _configuration["OTPSettings:Issuer"];
+            var audience = _configuration["OTPSettings:Audience"];
 
+            var tokenHandler = new JwtSecurityTokenHandler();
+            
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim("ID", userId.ToString()),
+                }),
+                Expires = DateTime.UtcNow.AddSeconds(30),
+                Issuer = issuer,
+                Audience = audience,
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+
+            return tokenHandler.WriteToken(token);
+        }
+        
+        public int? Validate2FALoginToken(string token)
+        {
+            try
+            {
+                var key = Encoding.ASCII.GetBytes(_configuration["OTPSettings:SecretKey"]);
+                var issuer = _configuration["OTPSettings:Issuer"];
+                var audience = _configuration["OTPSettings:Audience"];
+
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var validationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = true,
+                    ValidIssuer = issuer,
+                    ValidateAudience = true,
+                    ValidAudience = audience,
+                    ValidateLifetime = true, // Ensure the token is not expired
+                    ClockSkew = TimeSpan.Zero // No extra time tolerance
+                };
+
+                var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
+
+                // Ensure the token is a JWT token
+                if (validatedToken is not JwtSecurityToken jwtToken)
+                    return null;
+
+                // Extract the user ID claim
+                var userIdClaim = principal.FindFirst("ID")?.Value;
+                return userIdClaim != null ? int.Parse(userIdClaim) : null;
+            }
+            catch
+            {
+                return null; // Invalid token
+            }
+        }
+    }
 }

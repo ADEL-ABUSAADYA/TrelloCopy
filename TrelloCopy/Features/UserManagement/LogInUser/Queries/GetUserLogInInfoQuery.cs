@@ -18,7 +18,7 @@ public class GetUserLogInInfoQueryHandler : BaseRequestHandler<GetUserLogInInfoQ
     public override async Task<RequestResult<LogInInfoDTO>> Handle(GetUserLogInInfoQuery request, CancellationToken cancellationToken)
     {
         var userData  = await _repository.Get(u => u.Email == request.email)
-            .Select(u => new LogInInfoDTO(u.ID, u.TwoFactorAuthEnabled, u.Password)).FirstOrDefaultAsync();
+            .Select(u => new LogInInfoDTO(u.ID, u.TwoFactorAuthEnabled, u.Password, u.TwoFactorAuthsecretKey)).FirstOrDefaultAsync();
         
         if (userData.ID <= 0)
         {

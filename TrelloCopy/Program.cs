@@ -20,6 +20,9 @@ public class Program
 
         var jwtSettings = builder.Configuration.GetSection("JwtSettings");
         var key = Encoding.UTF8.GetBytes(jwtSettings.GetValue<string>("SecretKey"));
+        
+        var OTPSettings = builder.Configuration.GetSection("OTPSettings");
+        var otpKey = Encoding.UTF8.GetBytes(OTPSettings.GetValue<string>("SecretKey"));
 
         builder.Services.AddAuthentication(opts => {
                 opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -39,11 +42,10 @@ public class Program
             })
             .AddJwtBearer("2FA", opts =>
             {
-                var otpKey = Encoding.ASCII.GetBytes(jwtSettings.GetValue<string>("OTPSettings:SecretKey"));
                 opts.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidIssuer = jwtSettings.GetValue<string>("OTPSettings:Issuer"),
-                    ValidAudience = jwtSettings.GetValue<string>("OTPSettings:Audience"),
+                    ValidIssuer = OTPSettings.GetValue<string>("OTPSettings:Issuer"),
+                    ValidAudience = OTPSettings.GetValue<string>("OTPSettings:Audience"),
                     IssuerSigningKey = new SymmetricSecurityKey(otpKey),
                     ValidateAudience = true,
                     ValidateIssuer = true,

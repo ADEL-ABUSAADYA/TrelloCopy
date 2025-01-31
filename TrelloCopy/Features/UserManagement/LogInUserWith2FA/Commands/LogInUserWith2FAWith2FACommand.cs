@@ -5,7 +5,7 @@ using TrelloCopy.Common.Views;
 using TrelloCopy.Features.userManagement.LogInUser.Queries;
 using TrelloCopy.Models;
 using OtpNet;
-using TrelloCopy.Features.userManagement.LogInUserWith2FA.Queries; // Install-Package OtpNet
+using TrelloCopy.Features.userManagement.LogInUserWith2FA.Queries;
 
 namespace TrelloCopy.Features.UserManagement.LogInUserWith2FA.Commands;
 
@@ -49,6 +49,6 @@ public class LogInUserWith2FACommandHandler : BaseRequestHandler<LogInUserWith2F
         var keyBytes = Base32Encoding.ToBytes(userSecretKey);
         var totp = new Totp(keyBytes);
         
-        return totp.VerifyTotp(enteredOtp, out _, VerificationWindow.RfcSpecifiedNetworkDelay);
+        return totp.VerifyTotp(enteredOtp, out long timeStepMatched);
     }
 }

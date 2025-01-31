@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using TrelloCopy.Features.UserManagement.RegisterUser;
 
-namespace TrelloCopy.Features.UserManagement.ForgetPassword
+namespace TrelloCopy.Features.UserManagement.SendFrogetPasswordResetEmail
 {
     public record ForgetPasswordViewModel(string email); 
 

@@ -53,7 +53,7 @@ namespace TrelloCopy.Helpers
                 {
                     new Claim("ID", userId.ToString()),
                 }),
-                Expires = DateTime.UtcNow.AddSeconds(30),
+                Expires = DateTime.UtcNow.AddMinutes(5),
                 Issuer = issuer,
                 Audience = audience,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

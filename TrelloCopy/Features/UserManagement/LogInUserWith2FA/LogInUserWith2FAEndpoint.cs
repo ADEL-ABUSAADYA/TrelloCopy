@@ -13,7 +13,7 @@ public class LogInUserWith2FAEndpoint : BaseEndpoint<LogInUserWith2FARequestView
    }
 
    [HttpPost]
-   [Authorize(AuthenticationSchemes = "2FA")]
+   // [Authorize(AuthenticationSchemes = "2FA")]
    public async Task<EndpointResponse<string>> LogInUserWith2FA(LogInUserWith2FARequestViewModel viewmodel)
    {
       var validationResult =  ValidateRequest(viewmodel);

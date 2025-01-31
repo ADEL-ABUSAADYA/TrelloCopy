@@ -13,5 +13,6 @@ public enum ErrorCode
     EmailNotSent,
     UserAlreadyRegistered,
     Uasr2FAIsNotEnabled,
-    Invalid2FA
+    Invalid2FA,
+    AccountNotVerified
 }

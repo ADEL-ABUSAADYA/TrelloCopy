@@ -21,13 +21,14 @@ public class UpdateUser2FASecretKeyCommandHandler : BaseRequestHandler<UpdateUse
         var user = new User
         {
             ID = _userInfo.ID,
-            TwoFactorAuthsecretKey = request.User2FASecretKey
+            TwoFactorAuthsecretKey = request.User2FASecretKey,
+            TwoFactorAuthEnabled = true,
         };
 
         try
         {
 
-            _repository.SaveIncludeAsync(user, nameof(user.TwoFactorAuthsecretKey));
+            _repository.SaveIncludeAsync(user, nameof(user.TwoFactorAuthsecretKey), nameof(user.TwoFactorAuthEnabled));
             _repository.SaveChangesAsync();
         }
         catch (Exception e)

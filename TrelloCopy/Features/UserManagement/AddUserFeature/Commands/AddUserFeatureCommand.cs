@@ -2,11 +2,13 @@ using MediatR;
 using TrelloCopy.Common;
 using TrelloCopy.Common.Data.Enums; 
 using TrelloCopy.Common.Views;
+using TrelloCopy.Features.Common.Users.Queries;
+using TrelloCopy.Features.userManagement.AddUserFeature.Queries;
 using TrelloCopy.Models;
 
 namespace TrelloCopy.Features.userManagement.AddUserFeature.Commands;
 
-public record AddUserFeatureCommand(int userID, Feature feature) : IRequest<RequestResult<bool>>;
+public record AddUserFeatureCommand(string Email, Feature feature) : IRequest<RequestResult<bool>>;
 
 public class AddUserFeatureCommandHandler : BaseRequestHandler<AddUserFeatureCommand, RequestResult<bool>, UserFeature>
 {
@@ -14,17 +16,22 @@ public class AddUserFeatureCommandHandler : BaseRequestHandler<AddUserFeatureCom
 
     public async override Task<RequestResult<bool>> Handle(AddUserFeatureCommand request, CancellationToken cancellationToken)
     {
-        var userFeatureID = await _repository.AddAsync(new UserFeature
-        {
-            Feature = request.feature
-        });
-         await _repository.SaveChangesAsync();
+        
+        var userID = await _mediator.Send(new GetUserIDByEmailQuery(request.Email));
+        if (!userID.isSuccess)
+            return RequestResult<bool>.Failure(userID.errorCode, userID.message);
 
-         if (userFeatureID >= 0)
-         {
-             return RequestResult<bool>.Success(true);
-         }
+        var hasAccess = await _mediator.Send(new HasAccessQuery(userID.data, request.feature));
+        if (hasAccess)
+            return RequestResult<bool>.Success(true);
+        
+        await _repository.AddAsync(new UserFeature
+            {
+                Feature = request.feature,
+                UserID = userID.data,
+            });
+        await _repository.SaveChangesAsync();
 
-         return RequestResult<bool>.Failure(ErrorCode.UserNotFound);
+        return RequestResult<bool>.Success(true);
     }
 }

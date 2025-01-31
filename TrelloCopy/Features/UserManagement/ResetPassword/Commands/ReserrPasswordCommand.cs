@@ -9,7 +9,7 @@ using TrelloCopy.Models;
 
 namespace TrelloCopy.Features.UserManagement.ResetPassword.Commands
 {
-    public record ResetPasswordCommand(string otp  , string email , string NewPassword) : IRequest<RequestResult<bool>>;
+    public record ResetPasswordCommand(string ConfirmatinToken  , string email , string NewPassword) : IRequest<RequestResult<bool>>;
 
 
     public class ResetPasswordCommandHandeler : BaseRequestHandler<ResetPasswordCommand, RequestResult<bool>, User>

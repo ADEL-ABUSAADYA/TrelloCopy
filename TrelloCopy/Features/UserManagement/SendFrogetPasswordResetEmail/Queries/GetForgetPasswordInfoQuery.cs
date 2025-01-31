@@ -3,7 +3,6 @@ using TrelloCopy.Common.Views;
 using TrelloCopy.Common;
 using TrelloCopy.Common.Data.Enums;
 using Microsoft.EntityFrameworkCore;
-using TrelloCopy.Common.CommonQuary;
 using TrelloCopy.Models;
 
 

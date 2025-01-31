@@ -70,7 +70,6 @@ public class Program
         app.UseHttpsRedirection();
         app.UseAuthorization();
         app.MapControllers();
-
         app.UseMiddleware<GlobalErrorHandlerMiddleware>();
         app.UseMiddleware<TransactionMiddleware>();
         app.Run();

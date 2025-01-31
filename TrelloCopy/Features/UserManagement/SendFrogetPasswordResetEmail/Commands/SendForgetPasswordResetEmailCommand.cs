@@ -27,9 +27,21 @@ public class SendForgetPasswordResetEmailCommandHandler : BaseRequestHandler<Sen
         if (!passwordResetData.isSuccess)
             return RequestResult<bool>.Failure(passwordResetData.errorCode, passwordResetData.message);
         
-        var confirmationLink = $"{passwordResetData.data.EmailConfirmationToken}";
+        var passwordResetCode =Guid.NewGuid().ToString().Substring(0, 6);
+
+        var user = new User
+        {
+            ID = passwordResetData.data.UserID,
+            ResetPasswordToken = passwordResetCode
+        };
+
+        await _repository.SaveIncludeAsync(user, nameof(User.ResetPasswordToken)); 
+             
+        await _repository.SaveChangesAsync();
+
+        var confirmationToken = $"{user.ResetPasswordToken}";
         
-        var emailSent = await SendConfirmationEmail(request.email, passwordResetData.data.Name, confirmationLink);
+        var emailSent = await SendConfirmationEmail(request.email, "UpSkilling Student", confirmationToken);
         if (!emailSent.isSuccess)
             return RequestResult<bool>.Failure(ErrorCode.EmailNotSent);
 

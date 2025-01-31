@@ -1,3 +1,3 @@
 namespace TrelloCopy.Features.UserManagement.SendFrogetPasswordResetEmail;
 
-public record FrogetPasswordInfoDTO(string Name, bool IsEmailConfirmed, string EmailConfirmationToken);
+public record FrogetPasswordInfoDTO(int UserID, bool IsEmailConfirmed);

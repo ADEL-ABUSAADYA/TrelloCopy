@@ -3,11 +3,8 @@
 namespace TrelloCopy.Features.UserManagement.ChangePassword;
 
 public record ChangePasswordRequestViewModel(
-       int UserId,
        string CurrentPassword,
        string NewPassword);
-
-
 public class ChangePasswordRequestViewModelValidator : AbstractValidator<ChangePasswordRequestViewModel>
 {
     public ChangePasswordRequestViewModelValidator()

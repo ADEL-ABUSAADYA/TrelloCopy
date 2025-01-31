@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
+using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Models;
 
 namespace TrelloCopy.Data;
@@ -72,5 +72,22 @@ public class Context : DbContext
                 RoleID = 1 // Admin role
             }
         );
+        
+        // Seed User Features for Admin
+        var features = Enum.GetValues(typeof(Feature)).Cast<Feature>().ToList();
+        var userFeatures = new List<UserFeature>();
+
+        int idCounter = 1;
+        foreach (var feature in features)
+        {
+            userFeatures.Add(new UserFeature
+            {
+                ID = idCounter++,
+                UserID = 1,
+                Feature = feature
+            });
+        }
+
+        modelBuilder.Entity<UserFeature>().HasData(userFeatures);
     }
 }

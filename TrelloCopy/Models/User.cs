@@ -17,6 +17,8 @@ public class User : BaseModel
     public bool IsEmailConfirmed { get; set; } = false;
     public string? ConfirmationToken { get; set; }
     
+    public string? ResetPasswordToken { get; set; }
+    
     public int RoleID { get; set; }
     public Role Role { get; set; }
     

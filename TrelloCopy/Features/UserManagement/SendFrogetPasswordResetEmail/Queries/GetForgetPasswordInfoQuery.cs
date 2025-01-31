@@ -22,15 +22,14 @@ namespace TrelloCopy.Features.UserManagement.SendFrogetPasswordResetEmail.Querie
             var resetInfo = await _repository.Get(U=> U.Email == request.email)
                 .Select(u =>
                     new FrogetPasswordInfoDTO(
-                        u.Name,
-                        u.IsEmailConfirmed,
-                        u.ConfirmationToken
+                        u.ID,
+                        u.IsEmailConfirmed
                         )).FirstOrDefaultAsync();
 
-            if (resetInfo is null)
+            if (resetInfo is null )
                 return RequestResult<FrogetPasswordInfoDTO>.Failure(ErrorCode.UserNotFound, "this user not found");
 
-            if (!resetInfo.IsEmailConfirmed || string.IsNullOrEmpty(resetInfo.EmailConfirmationToken))
+            if (!resetInfo.IsEmailConfirmed || resetInfo.UserID <= 0 )
             {
                 return RequestResult<FrogetPasswordInfoDTO>.Failure(ErrorCode.AccountNotVerified, "Verify your email address");
             }

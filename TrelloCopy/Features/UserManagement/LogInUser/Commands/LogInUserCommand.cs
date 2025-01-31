@@ -34,12 +34,12 @@ public class LogInUserCommandHandler : BaseRequestHandler<LogInUserCommand, Requ
         if (userInfo.data.ID > 0 && !userInfo.data.Is2FAEnabled)
         {
             var token = _tokenHelper.GenerateToken(userInfo.data.ID);
-            return RequestResult<TokenDTO>.Success(new TokenDTO(Token: token, TokenWith2FA: ""));
+            return RequestResult<TokenDTO>.Success(new TokenDTO(LogInToken: token, TokenWith2FA: ""));
         }
         if (userInfo.data.ID > 0 && userInfo.data.Is2FAEnabled)
         {
             var token2fa = _tokenHelper.Generate2FALoginToken(userInfo.data.ID);
-            return RequestResult<TokenDTO>.Success(new TokenDTO(Token: "", TokenWith2FA: token2fa));
+            return RequestResult<TokenDTO>.Success(new TokenDTO(LogInToken: "", TokenWith2FA: token2fa));
         }
 
         return RequestResult<TokenDTO>.Failure(userInfo.errorCode, userInfo.message);

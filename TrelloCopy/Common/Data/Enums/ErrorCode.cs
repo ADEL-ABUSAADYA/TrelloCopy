@@ -14,5 +14,6 @@ public enum ErrorCode
     UserAlreadyRegistered,
     Uasr2FAIsNotEnabled,
     Invalid2FA,
-    AccountNotVerified
+    AccountNotVerified,
+    PasswordTokenNotMatch
 }

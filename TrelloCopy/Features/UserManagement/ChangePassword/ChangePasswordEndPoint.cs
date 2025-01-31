@@ -20,7 +20,7 @@ public class ChangePasswordEndPoint : BaseEndpoint<ChangePasswordRequestViewMode
         if (!validationResult.isSuccess)
             return validationResult;
 
-        var changePasswordCommand = new ChangePasswordCommand(viewModel.UserId, viewModel.CurrentPassword, viewModel.NewPassword);
+        var changePasswordCommand = new ChangePasswordCommand(viewModel.CurrentPassword, viewModel.NewPassword);
         var IsChanged = await _mediator.Send(changePasswordCommand);
         if (!IsChanged.isSuccess)
             return EndpointResponse<bool>.Failure(IsChanged.errorCode, IsChanged.message);

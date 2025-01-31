@@ -81,14 +81,6 @@ namespace TrelloCopy.Configrations
             builder.RegisterType<Repository<BaseModel>>().As<IRepository<BaseModel>>().InstancePerLifetimeScope();
             #endregion
 
-            #region Base Request Handler Parameters Registration
-            // Register base request handler parameters
-            builder.RegisterType<UserBaseRequestHandlerParameters>().AsSelf().InstancePerLifetimeScope();
-            builder.RegisterGeneric(typeof(BaseRequestHandlerParameters<>))
-                .AsSelf()
-                .InstancePerLifetimeScope();
-            #endregion
-
             #region JWT Authentication Registration
             // Register JWT authentication
             builder.Register(context =>

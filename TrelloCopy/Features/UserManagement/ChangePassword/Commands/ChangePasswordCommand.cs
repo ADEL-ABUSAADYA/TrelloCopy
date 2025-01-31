@@ -7,7 +7,7 @@ using TrelloCopy.Features.UserManagement.ChangePassword.Queries;
 using TrelloCopy.Models;
 
 namespace TrelloCopy.Features.UserManagement.ChangePassword.Commands;
-public record ChangePasswordCommand(int userId,string password,string newPassword) : IRequest<RequestResult<bool>>;
+public record ChangePasswordCommand(string CurrentPassword,string newPassword) : IRequest<RequestResult<bool>>;
 public class ChangePasswordCommandHandler : BaseRequestHandler<ChangePasswordCommand, RequestResult<bool>, User>
 {
     public ChangePasswordCommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
@@ -16,32 +16,39 @@ public class ChangePasswordCommandHandler : BaseRequestHandler<ChangePasswordCom
 
     public async override Task<RequestResult<bool>> Handle(ChangePasswordCommand request, CancellationToken cancellationToken)
     {
-        var response = await _mediator.Send(new IsUserExistQuery(request.userId));
+        var CurrentDatabasePassword = await _mediator.Send(new GetPasswordByIDQuery());
 
-        if (!response.isSuccess)
+        if (!CurrentDatabasePassword.isSuccess)
             return RequestResult<bool>.Failure(ErrorCode.UserNotFound);
 
         PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
-
         var newPassword = passwordHasher.HashPassword(null, request.newPassword);
-        var user = response.data;
+        
 
-        var isOldPasswordCorrect = CheckPassword(request.password, user.Password);
+        var isOldPasswordCorrect = CheckPassword(request.CurrentPassword, CurrentDatabasePassword.data);
+        
         if (!isOldPasswordCorrect)
             return RequestResult<bool>.Failure(ErrorCode.InvalidInput);
 
-        user.Password = newPassword;
-         await _repository.SaveIncludeAsync(user,"Password");
-       await _repository.SaveChangesAsync();
+        
+        var user = new User()
+        {
+            ID = _userInfo.ID,
+            Password = request.newPassword,
+        };
+           
+        await  _repository.SaveIncludeAsync(user, nameof(User.Password));
+           
+        await _repository.SaveChangesAsync(); 
 
-          return RequestResult<bool>.Success(true);
+        return RequestResult<bool>.Success(true);
 
     }
 
-    private bool CheckPassword(string requestPassword, string databasePassword)
+    private bool CheckPassword(string requestCurrentPassword, string databasePassword)
     {
         var passwordHasher = new PasswordHasher<string>();
-        return passwordHasher.VerifyHashedPassword(null, databasePassword, requestPassword) != PasswordVerificationResult.Failed;
+        return passwordHasher.VerifyHashedPassword(null, databasePassword, requestCurrentPassword) != PasswordVerificationResult.Failed;
     }
 
 }

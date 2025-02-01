@@ -10,13 +10,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using TrelloCopy.Common;
+using TrelloCopy.Common.BaseEndpoints;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Data;
 using TrelloCopy.Data.Repositories;
-using TrelloCopy.Features.UserManagement.ActivateUser2FA;
-using TrelloCopy.Features.UserManagement.ConfirmUserRegistration;
-using TrelloCopy.Features.UserManagement.LogInUser;
-using TrelloCopy.Features.UserManagement.RegisterUser;
+using TrelloCopy.Features.AuthManagement.ActivateUser2FA;
+using TrelloCopy.Features.AuthManagement.ConfirmUserRegistration;
+using TrelloCopy.Features.AuthManagement.LogInUser;
+using TrelloCopy.Features.AuthManagement.RegisterUser;
 using TrelloCopy.Helpers;
 using TrelloCopy.Models;
 using Module = Autofac.Module;
@@ -68,6 +69,9 @@ namespace TrelloCopy.Configrations
                 .AsSelf()
                 .InstancePerLifetimeScope();
 
+            builder.RegisterType(typeof(BaseWithoutTRequestEndpointParameters))
+                .AsSelf()
+                .InstancePerLifetimeScope();
             // Register endpoints
             builder.RegisterType<RegisterUserEndpoint>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<ConfirmEmailEndpoint>().AsSelf().InstancePerLifetimeScope();

@@ -1,6 +1,6 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using TrelloCopy.Common;
+using TrelloCopy.Common.BaseHandlers;
 using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Features.Common.Users.DTOs;

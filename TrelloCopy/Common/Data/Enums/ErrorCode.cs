@@ -15,5 +15,6 @@ public enum ErrorCode
     Uasr2FAIsNotEnabled,
     Invalid2FA,
     AccountNotVerified,
-    PasswordTokenNotMatch
+    PasswordTokenNotMatch,
+    NoUsersFound
 }

@@ -1,9 +1,9 @@
 using MediatR;
-using TrelloCopy.Common;
+using TrelloCopy.Common.BaseHandlers;
 using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Models;
 
-namespace TrelloCopy.Features.userManagement.AddUserFeature.Queries
+namespace TrelloCopy.Features.Common.Users.Queries
 {
     public record HasAccessQuery(int ID, Feature Feature) : IRequest<bool>;
 

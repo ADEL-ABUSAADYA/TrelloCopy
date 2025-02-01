@@ -1,12 +1,11 @@
 using MediatR;
-using TrelloCopy.Common;
+using TrelloCopy.Common.BaseHandlers;
 using TrelloCopy.Common.Data.Enums; 
 using TrelloCopy.Common.Views;
 using TrelloCopy.Features.Common.Users.Queries;
-using TrelloCopy.Features.userManagement.AddUserFeature.Queries;
 using TrelloCopy.Models;
 
-namespace TrelloCopy.Features.userManagement.AddUserFeature.Commands;
+namespace TrelloCopy.Features.UserManagement.AddUserFeature.Commands;
 
 public record AddUserFeatureCommand(string Email, Feature feature) : IRequest<RequestResult<bool>>;
 

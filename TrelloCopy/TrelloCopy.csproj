@@ -28,8 +28,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\UserManagement\AddUserFeature\Queries\" />
-      <Folder Include="Features\UserManagement\GetUser2FALink\Queries\" />
+      <Folder Include="Features\UserManagement\" />
+      <Folder Include="Features\ProjectManagement\" />
+      <Folder Include="Features\AuthManagement\GetUser2FALink\Queries\" />
     </ItemGroup>
 
 </Project>

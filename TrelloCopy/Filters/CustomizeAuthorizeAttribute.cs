@@ -1,7 +1,8 @@
 ﻿using TrelloCopy.Common.Data.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc.Filters;
-using TrelloCopy.Features.userManagement.AddUserFeature.Queries;
+using TrelloCopy.Features.Common.Users.Queries;
+
 
 namespace TrelloCopy.Filters
 {

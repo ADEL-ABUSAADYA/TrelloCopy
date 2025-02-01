@@ -7,22 +7,27 @@ using TrelloCopy.Features.UserManagement.GetAllUsers.Queries;
 
 namespace TrelloCopy.Features.UserManagement.GetAllUsers;
 
-public class GetAllUsersEndpoint : BaseWithoutTRequestEndpoint<UserResponseViewModel>
+public class GetAllUsersEndpoint : BaseEndpoint<PaginationRequestViewModel ,UserResponseViewModel>
 {
-   public GetAllUsersEndpoint(BaseWithoutTRequestEndpointParameters parameters) : base(parameters)
+   public GetAllUsersEndpoint(BaseEndpointParameters<PaginationRequestViewModel> parameters) : base(parameters)
    {
    }
 
    [HttpGet]
-   public async Task<EndpointResponse<UserResponseViewModel>> GetAllUsers([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+   public async Task<EndpointResponse<UserResponseViewModel>> GetAllUsers(PaginationRequestViewModel paginationRequest)
    {
-      var allUsers = await _mediator.Send(new GetAllUsersQuery(pageNumber, pageSize));
+      
+      // var validationResult =  ValidateRequest(paginationRequest);
+      // if (!validationResult.isSuccess)
+      //    return validationResult;
+      
+      var allUsers = await _mediator.Send(new GetAllUsersQuery(paginationRequest.PageNumber, paginationRequest.PageSize));
 
       if (!allUsers.isSuccess)
          return EndpointResponse<UserResponseViewModel>.Failure(allUsers.errorCode, allUsers.message);
 
-
       var paginatedResult = allUsers.data;
+
       var response = new UserResponseViewModel
       {
          Users = paginatedResult.Items.Select(u => new UserDTO

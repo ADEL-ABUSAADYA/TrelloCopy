@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using TrelloCopy.Common;
 using TrelloCopy.Common.BaseEndpoints;
+using TrelloCopy.Common.BaseHandlers;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Data;
 using TrelloCopy.Data.Repositories;
@@ -18,6 +19,9 @@ using TrelloCopy.Features.AuthManagement.ActivateUser2FA;
 using TrelloCopy.Features.AuthManagement.ConfirmUserRegistration;
 using TrelloCopy.Features.AuthManagement.LogInUser;
 using TrelloCopy.Features.AuthManagement.RegisterUser;
+using TrelloCopy.Features.Common.Pagination;
+using TrelloCopy.Features.UserManagement.GetAllUsers;
+using TrelloCopy.Features.UserManagement.GetAllUsers.Queries;
 using TrelloCopy.Helpers;
 using TrelloCopy.Models;
 using Module = Autofac.Module;
@@ -150,6 +154,8 @@ namespace TrelloCopy.Configrations
             builder.RegisterType<UserInfoFilter>().As<IActionFilter>().InstancePerLifetimeScope();
             builder.RegisterType<Mediator>().As<IMediator>().InstancePerLifetimeScope(); 
             #endregion
+            builder.RegisterType<BaseRequestHandlerParameters<User>>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<GetAllUsersQueryHandler>().As<IRequestHandler<GetAllUsersQuery, RequestResult<PaginatedResult<UserDTO>>>>().InstancePerLifetimeScope();
         }
     }
 }

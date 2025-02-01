@@ -2,9 +2,9 @@ namespace TrelloCopy.Features.UserManagement.GetAllUsers;
 
 public record UserResponseViewModel
 {
-    public string Email { get; set; }
-    public string Name { get; set; }
-    public string PhoneNo { get; set; }
-    public bool IsActive { get; set; }
+    public List<UserDTO> Users { get; set; }
+    public int TotalCount { get; set; }
+    public int PageNumber { get; set; }
+    public int PageSize { get; set; }
 }
     

@@ -7,15 +7,15 @@ using TrelloCopy.Models;
 
 namespace TrelloCopy.Features.UserManagement.BlockUser.Command
 {
-    public record BlockUserCommand(int id) : IRequest<RequestResult<bool>>;
+    public record ChangeStatusCommand(int id) : IRequest<RequestResult<bool>>;
 
-    public class BlockUserCommandHandler : BaseRequestHandler<BlockUserCommand, RequestResult<bool>, User>
+    public class BlockUserCommandHandler : BaseRequestHandler<ChangeStatusCommand, RequestResult<bool>, User>
     {
         public BlockUserCommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
         {
         }
 
-        public override async Task<RequestResult<bool>> Handle(BlockUserCommand request, CancellationToken cancellationToken)
+        public override async Task<RequestResult<bool>> Handle(ChangeStatusCommand request, CancellationToken cancellationToken)
         {
             var checkActivtion = await  _repository 
                .Get(c => c.ID == request.id)
@@ -24,7 +24,7 @@ namespace TrelloCopy.Features.UserManagement.BlockUser.Command
 
             if (checkActivtion == null) return RequestResult<bool>.Failure(ErrorCode.NoUsersFound, "this user not found");
 
-            if (!checkActivtion.IsActive) return RequestResult<bool>.Failure(ErrorCode.UserIsDeActivated, "this user already deActivate");
+         
 
             var changeStatus = !checkActivtion.IsActive;   
                  

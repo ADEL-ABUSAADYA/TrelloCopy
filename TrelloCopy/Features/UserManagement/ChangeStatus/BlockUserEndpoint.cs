@@ -27,7 +27,7 @@ namespace TrelloCopy.Features.UserManagement.GetUserDetalies
             if (!validationResult.isSuccess)
                 return EndpointResponse<bool>.Failure(ErrorCode.InvalidInput);
             
-            var response = await _mediator.Send(new BlockUserCommand(request.id));
+            var response = await _mediator.Send(new ChangeStatusCommand(request.id));
 
             if (!response.isSuccess)
                 return EndpointResponse<bool>.Failure(response.errorCode , response.message);

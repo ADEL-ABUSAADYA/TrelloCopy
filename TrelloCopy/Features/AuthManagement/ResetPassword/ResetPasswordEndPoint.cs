@@ -23,11 +23,11 @@ namespace TrelloCopy.Features.AuthManagement.ResetPassword
             var validateInput = ValidateRequest(parameters);
             if (!validateInput.isSuccess) return EndpointResponse<bool>.Failure(ErrorCode.InvalidInput);
 
-            // var response =await  _mediator.Send(new ResetPasswordCommand(parameters.otp, parameters.Email, parameters.Email, parameters.ConfirmPassword));
+            var response = await _mediator.Send(new ResetPasswordCommand(parameters.otp, parameters.Email, parameters.Email));
 
-            // if (!response.isSuccess) return EndpointResponse<IActionResult>.Failure(response.errorCode, response.message); 
-            
-            return EndpointResponse<bool>.Success(true);
+            if (!response.isSuccess) return EndpointResponse<bool>.Failure(response.errorCode, response.message);
+
+            return EndpointResponse<bool>.Success(true, "password change sucssfuly");
         }
 
     }

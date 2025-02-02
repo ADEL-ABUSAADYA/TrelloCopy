@@ -7,6 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Features\ProjectManagement\**" />
+      <Content Remove="Features\ProjectManagement\**" />
+      <EmbeddedResource Remove="Features\ProjectManagement\**" />
+      <None Remove="Features\ProjectManagement\**" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Autofac" Version="8.2.0" />
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
         <PackageReference Include="FluentValidation" Version="12.0.0-preview1" />
@@ -15,7 +22,7 @@
         <PackageReference Include="MediatR" Version="11.1.0" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.12" />
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.12" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.12">
           <PrivateAssets>all</PrivateAssets>
@@ -23,14 +30,13 @@
         </PackageReference>
         <PackageReference Include="Otp.NET" Version="1.4.0" />
         <PackageReference Include="PredicateExtensions" Version="1.0.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.1" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\UserManagement\" />
-      <Folder Include="Features\ProjectManagement\" />
       <Folder Include="Features\AuthManagement\GetUser2FALink\Queries\" />
+      <Folder Include="Features\UserManagement\GetUserDetails\Command\" />
     </ItemGroup>
 
 </Project>

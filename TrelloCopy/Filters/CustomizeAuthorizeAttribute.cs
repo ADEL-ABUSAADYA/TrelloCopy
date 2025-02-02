@@ -18,7 +18,7 @@ namespace TrelloCopy.Filters
             _mediator = mediator;
         }
 
-        public override void OnActionExecuting(ActionExecutingContext context)
+        public override async void OnActionExecuting(ActionExecutingContext context)
         {
             var claims = context.HttpContext.User;
              
@@ -32,7 +32,7 @@ namespace TrelloCopy.Filters
             var user = int.Parse(userID.Value);
 
 
-            var hasAccess = _mediator.Send(new HasAccessQuery(user, _feature)).GetAwaiter().GetResult();
+            var hasAccess = await _mediator.Send(new HasAccessQuery(user, _feature));
 
             if (!hasAccess)
             {

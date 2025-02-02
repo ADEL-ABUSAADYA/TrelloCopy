@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/TrelloCopy.csproj": {}
+    "F:\\study\\TrelloCopy\\TrelloCopy\\TrelloCopy.csproj": {}
   },
   "projects": {
-    "/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/TrelloCopy.csproj": {
+    "F:\\study\\TrelloCopy\\TrelloCopy\\TrelloCopy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/TrelloCopy.csproj",
+        "projectUniqueName": "F:\\study\\TrelloCopy\\TrelloCopy\\TrelloCopy.csproj",
         "projectName": "TrelloCopy",
-        "projectPath": "/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/TrelloCopy.csproj",
-        "packagesPath": "/Users/adelabusaadya/.nuget/packages/",
-        "outputPath": "/Users/adelabusaadya/RiderProjects/TrelloCopy/TrelloCopy/obj/",
+        "projectPath": "F:\\study\\TrelloCopy\\TrelloCopy\\TrelloCopy.csproj",
+        "packagesPath": "C:\\Users\\Ahmed Balal\\.nuget\\packages\\",
+        "outputPath": "F:\\study\\TrelloCopy\\TrelloCopy\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/adelabusaadya/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Ahmed Balal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -125,7 +128,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

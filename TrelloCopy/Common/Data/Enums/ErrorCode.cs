@@ -16,5 +16,13 @@ public enum ErrorCode
     Invalid2FA,
     AccountNotVerified,
     PasswordTokenNotMatch,
-    NoUsersFound
+    NoUsersFound,
+    UserIsDeActivated , 
+
+
+    ProjectAlreadyExists=24
+
+
+
+
 }

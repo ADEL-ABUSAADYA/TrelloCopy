@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrelloCopy.Data;
 
@@ -11,9 +12,11 @@ using TrelloCopy.Data;
 namespace TrelloCopy.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20250201094831_inti1")]
+    partial class inti1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -220,6 +223,9 @@ namespace TrelloCopy.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ResetPasswordToken")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("RoleID")
                         .HasColumnType("int");
 
@@ -253,6 +259,7 @@ namespace TrelloCopy.Migrations
                             IsActive = true,
                             IsEmailConfirmed = true,
                             Name = "Admin User",
+                            Password = "AQAAAAIAAYagAAAAENXgEc6CqN1hU200W4tQeLEA/W54B3OimrXlQ4yQhShpeI/Tf/gF2V65zVqagolbIA==",
                             PhoneNo = "1234567890",
                             RoleID = 1,
                             TwoFactorAuthEnabled = false,
@@ -338,6 +345,238 @@ namespace TrelloCopy.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("UserFeatures");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 0,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 2,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 1,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 3,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 2,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 4,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 3,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 5,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 4,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 6,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 5,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 7,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 6,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 8,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 7,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 9,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 8,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 10,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 9,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 11,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 10,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 12,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 11,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 13,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 12,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 14,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 13,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 15,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 14,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 16,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 15,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 17,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 16,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 18,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 101,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 19,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 102,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 20,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 103,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 21,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 104,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 22,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 105,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ID = 23,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Deleted = false,
+                            Feature = 106,
+                            UpdatedBy = 0,
+                            UserID = 1
+                        });
                 });
 
             modelBuilder.Entity("TrelloCopy.Models.UserSprintItem", b =>

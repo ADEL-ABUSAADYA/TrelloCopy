@@ -14,14 +14,14 @@ public class GetAllUsersEndpoint : BaseEndpoint<PaginationRequestViewModel ,User
    }
 
    [HttpGet]
-   public async Task<EndpointResponse<UserResponseViewModel>> GetAllUsers(PaginationRequestViewModel paginationRequest)
+   public async Task<EndpointResponse<UserResponseViewModel>> GetAllUsers([FromQuery] PaginationRequestViewModel paginationRequest)
    {
-      
-      // var validationResult =  ValidateRequest(paginationRequest);
-      // if (!validationResult.isSuccess)
-      //    return validationResult;
-      
-      var allUsers = await _mediator.Send(new GetAllUsersQuery(paginationRequest.PageNumber, paginationRequest.PageSize));
+
+        var validationResult = ValidateRequest(paginationRequest);
+        if (!validationResult.isSuccess)
+            return validationResult;
+
+        var allUsers = await _mediator.Send(new GetAllUsersQuery(paginationRequest.PageNumber, paginationRequest.PageSize));
 
       if (!allUsers.isSuccess)
          return EndpointResponse<UserResponseViewModel>.Failure(allUsers.errorCode, allUsers.message);

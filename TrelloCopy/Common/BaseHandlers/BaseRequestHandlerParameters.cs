@@ -7,7 +7,7 @@ using TrelloCopy.Models;
 
 namespace TrelloCopy.Common.BaseHandlers
 {
-    public class BaseRequestHandlerParameters<TEntity> where TEntity : BaseModel
+    public class BaseWithoutRepositoryRequestHandlerParameter<TEntity> where TEntity : BaseModel
     {
         private readonly IMediator _mediator;
         private readonly IRepository<TEntity> _repository;
@@ -21,7 +21,7 @@ namespace TrelloCopy.Common.BaseHandlers
         
 
         // Constructor accepts the generic repository type for flexibility
-        public BaseRequestHandlerParameters(IMediator mediator, IRepository<TEntity> repository, UserInfoProvider userInfoProvider, TokenHelper tokenHelper)
+        public BaseWithoutRepositoryRequestHandlerParameter(IMediator mediator, IRepository<TEntity> repository, UserInfoProvider userInfoProvider, TokenHelper tokenHelper)
         {
             _mediator = mediator;
             _repository = repository;

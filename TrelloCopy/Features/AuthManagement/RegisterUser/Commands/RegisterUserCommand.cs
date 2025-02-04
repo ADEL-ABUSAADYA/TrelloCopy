@@ -6,6 +6,7 @@ using TrelloCopy.Common.BaseHandlers;
 using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Features.AuthManagement.RegisterUser.Queries;
+using TrelloCopy.Features.Common.Command;
 using TrelloCopy.Models;
 
 namespace TrelloCopy.Features.AuthManagement.RegisterUser.Commands;
@@ -14,13 +15,13 @@ public record RegisterUserCommand(string email, string password, string name, st
 
 public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand, RequestResult<bool>, User>
 {
-    public RegisterUserCommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters) { }
+    public RegisterUserCommandHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters) { }
 
     public async override Task<RequestResult<bool>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
         var reponse = await _mediator.Send(new IsUserExistQuery(request.email));
         if (reponse.isSuccess)
-            return RequestResult<bool>.Failure(ErrorCode.UserAlreadyExist);
+            return RequestResult<bool>.Failure(ErrorCode.UserAlreadyExist , "useralready exist ");
         
         PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
         var password = passwordHasher.HashPassword(null, request.password);
@@ -34,7 +35,7 @@ public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand
             PhoneNo = request.phoneNo,
             Country = request.country,
             IsActive = true,
-            ConfirmationToken = Guid.NewGuid().ToString()
+            ConfirmationToken = Guid.NewGuid().ToString().Substring(0,6),
         };
         
        
@@ -47,57 +48,56 @@ public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand
         
         var confirmationLink = $"{user.ConfirmationToken}";
         
-        var emailSent = await SendConfirmationEmail(user.Email, user.Name, confirmationLink);
+        var emailSent = await _mediator.Send(new SendEamilQuary( user.Email, user.Name, confirmationLink));
         if (!emailSent.isSuccess)
-            return RequestResult<bool>.Failure(ErrorCode.EmailNotSent);
+            return RequestResult<bool>.Failure(ErrorCode.EmailNotSent, "email not send");
 
         return RequestResult<bool>.Success(true);
     }
     
-    private async Task<RequestResult<bool>> SendConfirmationEmail(string email, string name, string confirmationLink)
-    {
-        var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("adel", "upskillingfinalproject@gmail.com"));
-        message.To.Add(new MailboxAddress(name, email));
-        message.Subject = "UpSkilling Final Project";
+    //private async Task<RequestResult<bool>> SendConfirmationEmail(string email, string name, string confirmationLink)
+    //{
+    //    var message = new MimeMessage();
+    //    message.From.Add(new MailboxAddress("adel", "upskillingfinalproject@gmail.com"));
+    //    message.To.Add(new MailboxAddress(name, email));
+    //    message.Subject = "UpSkilling Final Project";
 
-        // Create multipart content for both plain text and HTML
-        var bodyBuilder = new BodyBuilder
-        {
-            TextBody = $"Please confirm your registration by token [{confirmationLink}]",
-            HtmlBody = $"Please confirm your registration by token [{confirmationLink}]"
-        };
+    //    // Create multipart content for both plain text and HTML
+    //    var bodyBuilder = new BodyBuilder
+    //    {
+    //        TextBody = $"Please confirm your registration by token [{confirmationLink}]",
+    //        HtmlBody = $"Please confirm your registration by token [{confirmationLink}]"
+    //    };
 
-        message.Body = bodyBuilder.ToMessageBody();
+    //    message.Body = bodyBuilder.ToMessageBody();
 
-        try
-        {
-            using (var client = new SmtpClient())
-            {
-                // Set the timeout for connection and authentication
-                client.Timeout = 10000;  // Timeout after 10 seconds
+    //    try
+    //    {
+    //        using (var client = new SmtpClient())
+    //        {
+    //            // Set the timeout for connection and authentication
+    //            client.Timeout = 10000;  // Timeout after 10 seconds
             
-                // Connect using StartTLS for security
-                await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+    //            // Connect using StartTLS for security
+    //            await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
 
-                // Authenticate with the provided credentials
-                await client.AuthenticateAsync("upskillingfinalproject@gmail.com", "vxfdhstkqegcfnei");
+    //            // Authenticate with the provided credentials
+    //            await client.AuthenticateAsync("upskillingfinalproject@gmail.com", "vxfdhstkqegcfnei");
 
-                // Send the email
-                await client.SendAsync(message);
-                await client.DisconnectAsync(true);
-            }
+    //            // Send the email
+    //            await client.SendAsync(message);
+    //            await client.DisconnectAsync(true);
+    //        }
 
-            return RequestResult<bool>.Success(true);
-        }
-        catch (Exception ex)
-        {
-            // Log the detailed exception message for debugging
-            Console.WriteLine($"Error sending email: {ex.Message}");
-            Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+    //        return RequestResult<bool>.Success(true);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        // Log the detailed exception message for debugging
+    //        Console.WriteLine($"Error sending email: {ex.Message}");
+    //        Console.WriteLine($"Stack Trace: {ex.StackTrace}");
 
-            // Return failure with error details
-            return RequestResult<bool>.Failure(ErrorCode.UnKnownError, ex.Message);
-        }
+    //        // Return failure with error details
+    //        return RequestResult<bool>.Failure(ErrorCode.UnKnownError, ex.Message);
+    //    }
     }
-}

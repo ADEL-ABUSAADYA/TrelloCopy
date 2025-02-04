@@ -14,8 +14,8 @@ namespace TrelloCopy.Features.AuthManagement.SendFrogetPasswordResetEmail
         {
         }
 
-        [HttpGet]
-        public async Task<EndpointResponse<bool>> SendFrogetPasswordResstEmail( [FromQuery]ForgetPasswordViewModel model)
+        [HttpPost]
+        public async Task<EndpointResponse<bool>> SendFrogetPasswordResstEmail( ForgetPasswordViewModel model)
         {
             var validationResult = ValidateRequest(model);
             if (!validationResult.isSuccess)
@@ -26,7 +26,7 @@ namespace TrelloCopy.Features.AuthManagement.SendFrogetPasswordResetEmail
             if(!response.isSuccess)
                 return EndpointResponse<bool>.Failure(response.errorCode , response.message);
 
-            return EndpointResponse<bool>.Success(true);
+            return EndpointResponse<bool>.Success(true,"ples check your email");
 
         }
 

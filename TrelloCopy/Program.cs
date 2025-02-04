@@ -4,6 +4,7 @@ using Autofac.Extensions.DependencyInjection;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using TrelloCopy.Common.Views;
 using TrelloCopy.Configrations;
 using TrelloCopy.Middlewares;
 
@@ -62,7 +63,8 @@ public class Program
         builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
         builder.Services.AddMediatR(typeof(Program).Assembly);
         builder.Services.AddControllersWithViews(opt => opt.Filters.Add<UserInfoFilter>());
-        
+        builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+
         var app = builder.Build();
         app.UseAuthentication();
         app.UseAuthorization();

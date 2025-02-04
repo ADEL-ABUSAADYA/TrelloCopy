@@ -13,7 +13,7 @@ public record IsUserExistQuery (string email) : IRequest<RequestResult<bool>>;
 
 public class IsUserExistQueryHandler : BaseRequestHandler<IsUserExistQuery, RequestResult<bool>, User>
 {
-    public IsUserExistQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters) { }
+    public IsUserExistQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters) { }
 
     public override async Task<RequestResult<bool>> Handle(IsUserExistQuery request, CancellationToken cancellationToken)
     {

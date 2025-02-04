@@ -11,5 +11,7 @@ public class SprintItem : BaseModel
     public int ProjectID { get; set; }
     public Project Project { get; set; }
     
-    public ICollection<UserSprintItem> UserSprintItems { get; set; }
+    //public ICollection<UserSprintItem> UserSprintItems { get; set; }
+    public int UserID { get; set; } 
+    public User User { get; set; }
 }

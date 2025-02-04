@@ -154,9 +154,10 @@ namespace TrelloCopy.Configrations
             builder.RegisterType<UserInfoFilter>().As<IActionFilter>().InstancePerLifetimeScope();
             builder.RegisterType<Mediator>().As<IMediator>().InstancePerLifetimeScope(); 
             #endregion
-            builder.RegisterType<BaseRequestHandlerParameters<User>>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<BaseWithoutRepositoryRequestHandlerParameter<User>>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<GetAllUsersQueryHandler>().As<IRequestHandler<GetAllUsersQuery, RequestResult<PaginatedResult<UserDTO>>>>().InstancePerLifetimeScope();
-            builder.RegisterType<BaseRequestHandlerParameters<Project>>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<BaseWithoutRepositoryRequestHandlerParameter<Project>>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<BaseWithoutRepositoryRequestHandlerParameter<SprintItem>>().AsSelf().InstancePerLifetimeScope();
 
         }
     }

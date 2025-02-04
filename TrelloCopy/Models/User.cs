@@ -23,7 +23,7 @@ public class User : BaseModel
     public Role Role { get; set; }
     
     public ICollection<UserFeature> UserFeatures { get; set; }
-    public ICollection<UserSprintItem> UserSprintItems { get; set; }
+    public ICollection<SprintItem> UserSprintItems { get; set; }
     public ICollection<Project> CreatedProjects { get; set; }
     public ICollection<UserAssignedProject> UserAssignedProjects { get; set; } = new List<UserAssignedProject>();
 }

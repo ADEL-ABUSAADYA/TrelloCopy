@@ -11,7 +11,7 @@ public record IsUserRegisteredQuery(string email, string token) : IRequest<Reque
 
 public class IsUserRegisteredQueryHandler : BaseRequestHandler<IsUserRegisteredQuery, RequestResult<int>, User>
 {
-    public IsUserRegisteredQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public IsUserRegisteredQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 
@@ -20,7 +20,7 @@ public class IsUserRegisteredQueryHandler : BaseRequestHandler<IsUserRegisteredQ
         var result= await _repository.Get(u => u.Email == request.email && u.ConfirmationToken == request.token).Select(u => u.ID).FirstOrDefaultAsync();
         if (result == 0)
         {
-            return RequestResult<int>.Failure(ErrorCode.UserNotFound);
+            return RequestResult<int>.Failure(ErrorCode.UserNotFound,"there is no user with email ");
         }
         return RequestResult<int>.Success(result);
     }

@@ -101,10 +101,10 @@ namespace TrelloCopy.Data.Repositories{
                 return false;
             }
         }
-        public void Delete(Entity entity)
+        public async Task Delete(Entity entity)
         {
             entity.Deleted = true;
-            SaveInclude(entity, nameof(BaseModel.Deleted));
+            await SaveIncludeAsync(entity, nameof(BaseModel.Deleted));
         }
 
         public void HardDelete(Entity entity)
@@ -145,7 +145,7 @@ namespace TrelloCopy.Data.Repositories{
 
         public async Task SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
+           await _context.SaveChangesAsync() ;
         }
 
         public async Task<bool> AnyAsync(Expression<Func<Entity, bool>> predicate)
@@ -155,6 +155,14 @@ namespace TrelloCopy.Data.Repositories{
         public async Task AddRangeAsync(IEnumerable<Entity> entities)
         {
             await _dbSet.AddRangeAsync(entities);
+        }
+        public async Task DeleteRangeAsync(ICollection<Entity> entities)
+        {
+            foreach (var entity in entities) {
+
+                 entity.Deleted = true;
+                 await SaveIncludeAsync(entity , nameof(entity.Deleted));
+            }
         }
     }
 }

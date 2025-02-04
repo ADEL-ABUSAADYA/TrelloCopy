@@ -13,7 +13,7 @@ public record GetPasswordByIDQuery () : IRequest<RequestResult<string>>;
 
 public class GetPasswordByIDQueryHandler : BaseRequestHandler<GetPasswordByIDQuery, RequestResult<string>, User>
 {
-    public GetPasswordByIDQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public GetPasswordByIDQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

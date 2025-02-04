@@ -11,7 +11,7 @@ public record GetUserLogInInfoWith2FAQuery(string email) : IRequest<RequestResul
 
 public class GetUserLogInInfoWith2FAQueryHandler : BaseRequestHandler<GetUserLogInInfoWith2FAQuery, RequestResult<LogInInfoWith2FADTO>, User>
 {
-    public GetUserLogInInfoWith2FAQueryHandler (BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public GetUserLogInInfoWith2FAQueryHandler (BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

@@ -11,7 +11,7 @@ namespace TrelloCopy.Features.UserManagement.BlockUser.Command
 
     public class BlockUserCommandHandler : BaseRequestHandler<ChangeStatusCommand, RequestResult<bool>, User>
     {
-        public BlockUserCommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+        public BlockUserCommandHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
         {
         }
 

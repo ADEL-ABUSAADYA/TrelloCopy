@@ -13,7 +13,7 @@ public record LogInUserWith2FACommand(string Email, string Otp) : IRequest<Reque
 
 public class LogInUserWith2FACommandHandler : BaseRequestHandler<LogInUserWith2FACommand, RequestResult<string>, User>
 {
-    public LogInUserWith2FACommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public LogInUserWith2FACommandHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

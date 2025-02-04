@@ -21,9 +21,6 @@ public enum ErrorCode
 
 
     ProjectAlreadyExists=24 , 
-    NoProjectAdd
-
-
-
-
+    NoProjectAdd,
+    ProjectNotFound
 }

@@ -12,7 +12,7 @@ public record LogInUserCommand(string Email, string Password) : IRequest<Request
 
 public class LogInUserCommandHandler : BaseRequestHandler<LogInUserCommand, RequestResult<TokenDTO>, User>
 {
-    public LogInUserCommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public LogInUserCommandHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

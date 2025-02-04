@@ -8,12 +8,12 @@ using TrelloCopy.Models;
 
 namespace TrelloCopy.Features.ProjectManage.AddProject.Command
 {
-    public record AddProjectCommand(string title , string describtion) : IRequest<RequestResult<bool>>;
+    public record AddProjectCommand(string title, string describtion) : IRequest<RequestResult<bool>>;
 
 
     public class AddProjectCommandHandler : BaseRequestHandler<AddProjectCommand, RequestResult<bool>, Project>
     {
-        public AddProjectCommandHandler(BaseRequestHandlerParameters<Project> parameters) : base(parameters)
+        public AddProjectCommandHandler(BaseWithoutRepositoryRequestHandlerParameter<Project> parameters) : base(parameters)
         {
 
 
@@ -24,9 +24,9 @@ namespace TrelloCopy.Features.ProjectManage.AddProject.Command
             var userId = _userInfo.ID;
 
             // check this project is already exist 
-            var project = await _mediator.Send(new IsProjectExistQuery(request.title, userId)); 
+            var project = await _mediator.Send(new IsProjectExistQuery(request.title, userId));
 
-            if (!project.isSuccess) return RequestResult<bool>.Failure(project.errorCode , project.message);
+            if (!project.isSuccess) return RequestResult<bool>.Failure(project.errorCode, project.message);
 
 
             var NewProject = new Project
@@ -36,10 +36,10 @@ namespace TrelloCopy.Features.ProjectManage.AddProject.Command
                 Title = request.title,
                 CreatedDate = DateTime.Now,
                 CreatorID = userId,
-            }; 
+            };
 
             _repository.Add(NewProject);
-           await _repository.SaveChangesAsync();
+            await _repository.SaveChangesAsync();
 
             return RequestResult<bool>.Success(true, "project created sucssfuly");
         }

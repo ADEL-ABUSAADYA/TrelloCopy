@@ -11,7 +11,7 @@ public record AddUserFeatureCommand(string Email, Feature feature) : IRequest<Re
 
 public class AddUserFeatureCommandHandler : BaseRequestHandler<AddUserFeatureCommand, RequestResult<bool>, UserFeature>
 {
-    public AddUserFeatureCommandHandler(BaseRequestHandlerParameters<UserFeature> parameters ): base(parameters) { }
+    public AddUserFeatureCommandHandler(BaseWithoutRepositoryRequestHandlerParameter<UserFeature> parameters ): base(parameters) { }
 
     public async override Task<RequestResult<bool>> Handle(AddUserFeatureCommand request, CancellationToken cancellationToken)
     {

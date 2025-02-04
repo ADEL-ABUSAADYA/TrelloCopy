@@ -13,19 +13,19 @@ namespace TrelloCopy.Features.ProjectManage.GetAllProject
         }
 
         [HttpGet("FilterProjec")]
-        public async  Task<EndpointResponse<ProjectResponseViewModel>>GetAllPeoject([FromQuery]ProjectParames parames)
+        public async Task<EndpointResponse<ProjectResponseViewModel>> GetAllPeoject([FromQuery] ProjectParames parames)
         {
             var validationResult = ValidateRequest(parames);
             if (!validationResult.isSuccess)
                 return validationResult;
 
-            var FilteredProject = await _mediator.Send(new GetAllProjectsQuery(parames.PageNumber , parames.PageSize , parames.title));
+            var FilteredProject = await _mediator.Send(new GetAllProjectsQuery(parames.PageNumber, parames.PageSize, parames.title));
 
             if (!FilteredProject.isSuccess)
                 return EndpointResponse<ProjectResponseViewModel>.Failure(FilteredProject.errorCode, FilteredProject.message);
             var response = new ProjectResponseViewModel
             {
-                Projects = FilteredProject.data.Select(U => new GetAllProjectDTo
+                Projects = FilteredProject.data.Select(U => new GetProjectDTo
                 {
                     title = U.title,
                     description = U.description,
@@ -39,7 +39,7 @@ namespace TrelloCopy.Features.ProjectManage.GetAllProject
             };
             return EndpointResponse<ProjectResponseViewModel>.Success(response);
         }
-    
-    
+
+
     }
 }

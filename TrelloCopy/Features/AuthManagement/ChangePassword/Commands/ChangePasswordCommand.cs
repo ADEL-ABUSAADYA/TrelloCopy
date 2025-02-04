@@ -10,7 +10,7 @@ namespace TrelloCopy.Features.AuthManagement.ChangePassword.Commands;
 public record ChangePasswordCommand(string CurrentPassword,string newPassword) : IRequest<RequestResult<bool>>;
 public class ChangePasswordCommandHandler : BaseRequestHandler<ChangePasswordCommand, RequestResult<bool>, User>
 {
-    public ChangePasswordCommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public ChangePasswordCommandHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

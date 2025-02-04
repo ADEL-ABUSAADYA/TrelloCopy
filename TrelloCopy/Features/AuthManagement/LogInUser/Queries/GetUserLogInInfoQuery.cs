@@ -18,12 +18,15 @@ public class GetUserLogInInfoQueryHandler : BaseRequestHandler<GetUserLogInInfoQ
     public override async Task<RequestResult<LogInInfoDTO>> Handle(GetUserLogInInfoQuery request, CancellationToken cancellationToken)
     {
         var userData  = await _repository.Get(u => u.Email == request.email)
-            .Select(u => new LogInInfoDTO(u.ID, u.TwoFactorAuthEnabled, u.Password, u.IsEmailConfirmed)).FirstOrDefaultAsync();
+            .Select(u => new LogInInfoDTO(u.ID, u.TwoFactorAuthEnabled, u.Password, u.IsEmailConfirmed , u.IsActive)).FirstOrDefaultAsync();
         
-        if (userData.ID <= 0)
+        if (userData is null)
         {
             return RequestResult<LogInInfoDTO>.Failure(ErrorCode.UserNotFound, "please check your email address.");
         }
+
+        if (!userData.IsActivte) return RequestResult<LogInInfoDTO>.Failure(ErrorCode.UserIsDeActivated); 
+
         return RequestResult<LogInInfoDTO>.Success(userData);
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.Data.SqlClient;
 using System.Reflection.Metadata.Ecma335;
 using TrelloCopy.Common.BaseHandlers;
 using TrelloCopy.Common.Views;
-using TrelloCopy.Features.ProjectManage.AddProject.Query;
+using TrelloCopy.Features.Common.Projects.Queries;
 using TrelloCopy.Models;
 
 namespace TrelloCopy.Features.ProjectManage.AddProject.Command

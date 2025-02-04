@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrelloCopy.Data;
 
@@ -11,9 +12,11 @@ using TrelloCopy.Data;
 namespace TrelloCopy.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20250203142413_inint5.")]
+    partial class inint5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -261,7 +264,7 @@ namespace TrelloCopy.Migrations
                             IsActive = true,
                             IsEmailConfirmed = true,
                             Name = "Admin User",
-                            Password = "AQAAAAIAAYagAAAAEKzYSHWib8JKYlQsSksieRbO49qYk+DGt+k7D7V7Mv69ObmD/Ffe7RNjJsHV35prlw==",
+                            Password = "AQAAAAIAAYagAAAAEG0fkd6C9a84CjLAHSZ5DjJq1J4AWb2i/uhT66whn83AObs5ndNaskU4b/y5YoqNzQ==",
                             PhoneNo = "1234567890",
                             RoleID = 1,
                             TwoFactorAuthEnabled = false,

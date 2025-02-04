@@ -4,7 +4,7 @@ using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Models;
 
-namespace TrelloCopy.Features.ProjectManage.AddProject.Query
+namespace TrelloCopy.Features.Common.Projects.Queries 
 {
     public record IsProjectExistQuery(string title, int createdBy ) : IRequest<RequestResult<bool>>;
 

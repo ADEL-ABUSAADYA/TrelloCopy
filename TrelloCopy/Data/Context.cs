@@ -17,7 +17,7 @@ public class Context : DbContext
     public DbSet<Project> Projects { get; set; }
     
     public DbSet<UserAssignedProject> UserAssignedProjects { get; set; }
-    public DbSet<UserSprintItem> UserSprintItems { get; set; }
+    //public DbSet<UserSprintItem> UserSprintItems { get; set; }
     public DbSet<UserFeature> UserFeatures { get; set; }
 
 

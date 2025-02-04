@@ -20,7 +20,8 @@ public enum ErrorCode
     UserIsDeActivated , 
 
 
-    ProjectAlreadyExists=24
+    ProjectAlreadyExists=24 , 
+    NoProjectAdd
 
 
 

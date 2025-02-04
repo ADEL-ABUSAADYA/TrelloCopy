@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Models;
+using static Org.BouncyCastle.Math.EC.ECCurve;
+using System.Diagnostics;
 
 namespace TrelloCopy.Data;
 public class Context : DbContext
@@ -20,7 +22,13 @@ public class Context : DbContext
     //public DbSet<UserSprintItem> UserSprintItems { get; set; }
     public DbSet<UserFeature> UserFeatures { get; set; }
 
-
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder
+            .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+            .LogTo(log => Debug.WriteLine(log), LogLevel.Information)
+            .EnableSensitiveDataLogging();
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

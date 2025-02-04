@@ -19,14 +19,14 @@ namespace TrelloCopy.Features.ProjectManage.AddProject
 
         [HttpPost]
         [Authorize]
-     
+
         public async Task<EndpointResponse<bool>> AddBook(RequestAddProjectModel viewmodel)
         {
             var validationResult = ValidateRequest(viewmodel);
             if (!validationResult.isSuccess)
                 return validationResult;
 
-            var Project = await _mediator.Send(new AddProjectCommand (viewmodel.Title , viewmodel.Descrbition));
+            var Project = await _mediator.Send(new AddProjectCommand(viewmodel.Title, viewmodel.Descrbition));
             if (!Project.isSuccess)
                 return EndpointResponse<bool>.Failure(Project.errorCode, Project.message);
 

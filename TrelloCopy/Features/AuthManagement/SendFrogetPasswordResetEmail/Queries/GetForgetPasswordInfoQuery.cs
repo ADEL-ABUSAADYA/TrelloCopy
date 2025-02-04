@@ -13,7 +13,7 @@ namespace TrelloCopy.Features.AuthManagement.SendFrogetPasswordResetEmail.Querie
 
     public class ResetPsswordQueryHandler : BaseRequestHandler<GetForgetPasswordInfoQuery, RequestResult<FrogetPasswordInfoDTO>, User>
     {
-        public ResetPsswordQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+        public ResetPsswordQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
         {
         }
 

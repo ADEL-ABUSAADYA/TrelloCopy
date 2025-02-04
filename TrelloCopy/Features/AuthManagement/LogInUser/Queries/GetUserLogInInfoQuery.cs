@@ -11,7 +11,7 @@ public record GetUserLogInInfoQuery(string email) : IRequest<RequestResult<LogIn
 
 public class GetUserLogInInfoQueryHandler : BaseRequestHandler<GetUserLogInInfoQuery, RequestResult<LogInInfoDTO>, User>
 {
-    public GetUserLogInInfoQueryHandler (BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public GetUserLogInInfoQueryHandler (BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

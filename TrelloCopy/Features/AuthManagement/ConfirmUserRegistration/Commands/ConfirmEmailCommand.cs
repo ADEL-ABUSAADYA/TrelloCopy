@@ -10,7 +10,7 @@ public record ConfirmEmailCommand(string email, string token) : IRequest<Request
 
 public class ConfirmEmailHandler : BaseRequestHandler<ConfirmEmailCommand, RequestResult<bool>, User>
 {
-    public ConfirmEmailHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public ConfirmEmailHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

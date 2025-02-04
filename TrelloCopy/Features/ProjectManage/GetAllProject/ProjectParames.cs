@@ -6,7 +6,7 @@ namespace TrelloCopy.Features.ProjectManage.GetAllProject
 {
     public class ProjectParames : QueryStringParamater
     {
-        public string ?title { get; set; }
+        public string? title { get; set; }
     }
 
     public class ProjectParamesValidator : AbstractValidator<ProjectParames>

@@ -1,6 +1,7 @@
-﻿namespace TrelloCopy.Features.ProjectManage.GetAllProject.Query
+﻿namespace TrelloCopy.Features.ProjectManage.GetProjectDetailes.Query
 {
-    public class GetProjectDTo
+    public class GetProjectRequestDTO
+
     {
         public string title { get; set; }
 
@@ -11,5 +12,7 @@
         public int NumTask { get; set; }
 
         public DateTime CreatedDate { get; set; }
+
+
     }
 }

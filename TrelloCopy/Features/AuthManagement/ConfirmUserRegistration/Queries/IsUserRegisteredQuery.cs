@@ -11,7 +11,7 @@ public record IsUserRegisteredQuery(string email, string token) : IRequest<Reque
 
 public class IsUserRegisteredQueryHandler : BaseRequestHandler<IsUserRegisteredQuery, RequestResult<int>, User>
 {
-    public IsUserRegisteredQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public IsUserRegisteredQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

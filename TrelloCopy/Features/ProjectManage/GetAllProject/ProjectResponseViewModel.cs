@@ -4,13 +4,13 @@ namespace TrelloCopy.Features.ProjectManage.GetAllProject
 {
     public class ProjectResponseViewModel
     {
-        public List<GetAllProjectDTo>Projects { get; set; }
+        public List<GetProjectDTo> Projects { get; set; }
 
         public int totalNumber { get; set; }
 
         public int PageSize { get; set; }
 
-        public int PageNumber{ get; set; }
+        public int PageNumber { get; set; }
 
 
     }

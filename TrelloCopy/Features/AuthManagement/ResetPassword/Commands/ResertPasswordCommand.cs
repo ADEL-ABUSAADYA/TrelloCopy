@@ -15,7 +15,7 @@ namespace TrelloCopy.Features.AuthManagement.ResetPassword.Commands
 
     public class ResetPasswordCommandHandeler : BaseRequestHandler<ResetPasswordCommand, RequestResult<bool>, User>
     {
-        public ResetPasswordCommandHandeler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+        public ResetPasswordCommandHandeler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
         {
         }
 

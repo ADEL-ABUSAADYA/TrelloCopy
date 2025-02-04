@@ -12,7 +12,7 @@ public record GetAllUsersQuery(int PageNumber , int PageSize) : IRequest<Request
 
 public class GetAllUsersQueryHandler : BaseRequestHandler<GetAllUsersQuery, RequestResult<PaginatedResult<UserDTO>>, User>
 {
-    public GetAllUsersQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public GetAllUsersQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

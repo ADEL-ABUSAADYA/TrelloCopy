@@ -11,7 +11,7 @@ namespace TrelloCopy.Data.Repositories
         void Add(Entity entity);
         Task<bool> SaveIncludeAsync(Entity entity, params string[] properties);
         void SaveInclude(Entity entity, params string[] properties);
-        void Delete(Entity entity);
+        Task Delete(Entity entity);
         void HardDelete(Entity entity);
         IQueryable<Entity> GetAll();
         IQueryable<Entity> GetAllWithDeleted();
@@ -24,7 +24,7 @@ namespace TrelloCopy.Data.Repositories
         void SaveChanges();
         Task<int> AddAsync(Entity entity);
         Task AddRangeAsync(IEnumerable<Entity> entities);
-
+        Task DeleteRangeAsync(ICollection<Entity> entities); 
         Task SaveChangesAsync();
     }
 }

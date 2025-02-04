@@ -9,7 +9,7 @@ namespace TrelloCopy.Features.Common.Users.Queries
 
     public class HasAccessQueryHandler : BaseRequestHandler<HasAccessQuery, bool, UserFeature>
     {
-        public HasAccessQueryHandler(BaseRequestHandlerParameters<UserFeature> parameters) : base(parameters)
+        public HasAccessQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<UserFeature> parameters) : base(parameters)
         {
         }
         public override async Task<bool> Handle(HasAccessQuery request, CancellationToken cancellationToken)

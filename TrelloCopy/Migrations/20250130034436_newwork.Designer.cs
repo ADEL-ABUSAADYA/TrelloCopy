@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrelloCopy.Data;
 
@@ -11,9 +12,11 @@ using TrelloCopy.Data;
 namespace TrelloCopy.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20250130034436_newwork")]
+    partial class newwork
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -167,14 +170,9 @@ namespace TrelloCopy.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
                     b.HasKey("ID");
 
                     b.HasIndex("ProjectID");
-
-                    b.HasIndex("UserID");
 
                     b.ToTable("SprintItems");
                 });
@@ -258,10 +256,7 @@ namespace TrelloCopy.Migrations
                             IsActive = true,
                             IsEmailConfirmed = true,
                             Name = "Admin User",
-<<<<<<< HEAD
-                            Password = "AQAAAAIAAYagAAAAEKzYSHWib8JKYlQsSksieRbO49qYk+DGt+k7D7V7Mv69ObmD/Ffe7RNjJsHV35prlw==",
-=======
->>>>>>> 6ae4654236e5e9e904278da2fb2c0a3c45575212
+                            Password = "AQAAAAIAAYagAAAAEDvT1EgtKSpXlFy0BElHEdVVFQWiSxEISMLzCKNITpo1UubcXtLt5hLpS8+iz5er2A==",
                             PhoneNo = "1234567890",
                             RoleID = 1,
                             TwoFactorAuthEnabled = false,
@@ -349,6 +344,44 @@ namespace TrelloCopy.Migrations
                     b.ToTable("UserFeatures");
                 });
 
+            modelBuilder.Entity("TrelloCopy.Models.UserSprintItem", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SprintItemID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("SprintItemID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("UserSprintItems");
+                });
+
             modelBuilder.Entity("TrelloCopy.Models.Project", b =>
                 {
                     b.HasOne("TrelloCopy.Models.User", "Creator")
@@ -368,15 +401,7 @@ namespace TrelloCopy.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TrelloCopy.Models.User", "User")
-                        .WithMany("UserSprintItems")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Project");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TrelloCopy.Models.User", b =>
@@ -420,6 +445,25 @@ namespace TrelloCopy.Migrations
                     b.Navigation("user");
                 });
 
+            modelBuilder.Entity("TrelloCopy.Models.UserSprintItem", b =>
+                {
+                    b.HasOne("TrelloCopy.Models.SprintItem", "SprintItem")
+                        .WithMany("UserSprintItems")
+                        .HasForeignKey("SprintItemID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TrelloCopy.Models.User", "User")
+                        .WithMany("UserSprintItems")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SprintItem");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TrelloCopy.Models.Project", b =>
                 {
                     b.Navigation("SprintItems");
@@ -430,6 +474,11 @@ namespace TrelloCopy.Migrations
             modelBuilder.Entity("TrelloCopy.Models.Role", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("TrelloCopy.Models.SprintItem", b =>
+                {
+                    b.Navigation("UserSprintItems");
                 });
 
             modelBuilder.Entity("TrelloCopy.Models.User", b =>

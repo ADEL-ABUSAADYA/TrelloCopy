@@ -21,7 +21,7 @@ public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand
     {
         var reponse = await _mediator.Send(new IsUserExistQuery(request.email));
         if (reponse.isSuccess)
-            return RequestResult<bool>.Failure(ErrorCode.UserAlreadyExist);
+            return RequestResult<bool>.Failure(ErrorCode.UserAlreadyExist , "useralready exist ");
         
         PasswordHasher<string> passwordHasher = new PasswordHasher<string>();
         var password = passwordHasher.HashPassword(null, request.password);
@@ -50,7 +50,7 @@ public class RegisterUserCommandHandler : BaseRequestHandler<RegisterUserCommand
         
         var emailSent = await _mediator.Send(new SendEamilQuary( user.Email, user.Name, confirmationLink));
         if (!emailSent.isSuccess)
-            return RequestResult<bool>.Failure(ErrorCode.EmailNotSent);
+            return RequestResult<bool>.Failure(ErrorCode.EmailNotSent, "email not send");
 
         return RequestResult<bool>.Success(true);
     }

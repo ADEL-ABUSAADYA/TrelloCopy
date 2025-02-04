@@ -26,7 +26,7 @@ namespace TrelloCopy.Features.AuthManagement.SendFrogetPasswordResetEmail
             if(!response.isSuccess)
                 return EndpointResponse<bool>.Failure(response.errorCode , response.message);
 
-            return EndpointResponse<bool>.Success(true);
+            return EndpointResponse<bool>.Success(true,"ples check your email");
 
         }
 

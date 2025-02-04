@@ -26,7 +26,7 @@ public class ChangePasswordEndPoint : BaseEndpoint<ChangePasswordRequestViewMode
         var IsChanged = await _mediator.Send(changePasswordCommand);
         if (!IsChanged.isSuccess)
             return EndpointResponse<bool>.Failure(IsChanged.errorCode, IsChanged.message);
-        return EndpointResponse<bool>.Success(true);
+        return EndpointResponse<bool>.Success(true,"changed sucssfully");
 
 
 

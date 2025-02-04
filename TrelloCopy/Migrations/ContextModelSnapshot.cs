@@ -259,7 +259,10 @@ namespace TrelloCopy.Migrations
                             IsEmailConfirmed = true,
                             Name = "Admin User",
 <<<<<<< HEAD
+<<<<<<< HEAD
                             Password = "AQAAAAIAAYagAAAAEKzYSHWib8JKYlQsSksieRbO49qYk+DGt+k7D7V7Mv69ObmD/Ffe7RNjJsHV35prlw==",
+=======
+>>>>>>> 6ae4654236e5e9e904278da2fb2c0a3c45575212
 =======
 >>>>>>> 6ae4654236e5e9e904278da2fb2c0a3c45575212
                             PhoneNo = "1234567890",
@@ -347,6 +350,47 @@ namespace TrelloCopy.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("UserFeatures");
+<<<<<<< HEAD
+=======
+                });
+
+            modelBuilder.Entity("TrelloCopy.Models.UserSprintItem", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SprintItemID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("SprintItemID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("UserSprintItems");
+>>>>>>> 6ae4654236e5e9e904278da2fb2c0a3c45575212
                 });
 
             modelBuilder.Entity("TrelloCopy.Models.Project", b =>

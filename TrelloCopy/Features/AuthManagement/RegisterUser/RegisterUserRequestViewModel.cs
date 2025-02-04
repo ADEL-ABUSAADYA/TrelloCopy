@@ -20,7 +20,8 @@ public class RegisterUserRequestViewModelValidator : AbstractValidator<RegisterU
             .Matches(@"[A-Z]").WithMessage("Password must contain at least one uppercase letter.")
             .Matches(@"[a-z]").WithMessage("Password must contain at least one lowercase letter.")
             .Matches(@"\d").WithMessage("Password must contain at least one number.")
-            .Matches(@"[\W_]").WithMessage("Password must contain at least one special character (!@#$%^&* etc.).");
+            .Matches(@"[\W_]").WithMessage("Password must contain at least one special character (!@#$%^&* etc.).")
+            .Must(email => !email.Contains("gamil.com")).WithMessage("Did you mean 'gmail.com'? Please check your email."); 
 
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Name is required.");

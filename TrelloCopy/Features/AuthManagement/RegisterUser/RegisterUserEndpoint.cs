@@ -23,6 +23,6 @@ public class RegisterUserEndpoint : BaseEndpoint<RegisterUserRequestViewModel, b
       if (!isRegistered.isSuccess)
          return EndpointResponse<bool>.Failure(isRegistered.errorCode, isRegistered.message);
       
-      return EndpointResponse<bool>.Success(true);
+      return EndpointResponse<bool>.Success(true,"ples confirm your email");
    }
 }

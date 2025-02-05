@@ -24,19 +24,25 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.AddTask
 
             RuleFor(x => x.Title)
                 .NotEmpty()
-                .WithMessage("Title is required");
+                .WithMessage("Title is required")
+                .Must(BeUniqueTitle);
 
             #endregion
+            
             #region Description
-            RuleFor(x => x.Description).NotEmpty()
+            RuleFor(x => x.Description)
+                .NotEmpty()
                 .WithMessage("Description is required");
                 
 
             #endregion
+
             #region UserId
             RuleFor(x => x.UserId).NotEmpty()
-                .WithMessage("UserId is required");
+                .WithMessage("UserId is required")
+                .Must(UserExist);
             #endregion
+            
             #region ProjectId 
             RuleFor(x => x.ProjectId).NotEmpty().WithMessage("ProjectId is required");
             #endregion
@@ -46,7 +52,7 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.AddTask
         {
             return context.Tasks.All(x => x.Title != title);
         }
-        private bool IsUserExist(int userId)
+        private bool UserExist(int userId)
         {
             return context.Users.Any(x => x.ID == userId);
         }

@@ -36,6 +36,7 @@
 
     <ItemGroup>
       <Folder Include="Features\AuthManagement\GetUser2FALink\Queries\" />
+      <Folder Include="Features\TaskManagement\Tasks\AddTask\Query\" />
       <Folder Include="Features\UserManagement\GetUserDetails\Command\" />
     </ItemGroup>
 

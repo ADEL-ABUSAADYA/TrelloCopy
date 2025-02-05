@@ -36,7 +36,7 @@ namespace TrelloCopy.Configrations
             builder.Register(context =>
             {
                 var config = context.Resolve<IConfiguration>();
-                var connectionString = config.GetConnectionString("DefaultConnection");
+                var connectionString = config.GetConnectionString("ServerConnection");
                 var options = new DbContextOptionsBuilder<Context>()
                     .UseSqlServer(connectionString)
                     .Options;

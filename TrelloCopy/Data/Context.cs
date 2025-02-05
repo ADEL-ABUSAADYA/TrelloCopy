@@ -15,7 +15,7 @@ public class Context : DbContext
     public DbSet<SprintItem> SprintItems { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<Project> Projects { get; set; }
-    
+    public DbSet<Models.TaskEntity> Tasks { get; set; }
     public DbSet<UserAssignedProject> UserAssignedProjects { get; set; }
     public DbSet<UserSprintItem> UserSprintItems { get; set; }
     public DbSet<UserFeature> UserFeatures { get; set; }
@@ -45,6 +45,15 @@ public class Context : DbContext
             .WithMany(u => u.CreatedProjects)
             .HasForeignKey(p => p.CreatorID)
             .OnDelete(DeleteBehavior.NoAction);  // Avoid cascade delete
+        modelBuilder.Entity<Models.TaskEntity>()
+            .HasOne(t => t.User)
+            .WithOne(u => u.Task);
+        modelBuilder.Entity<Models.TaskEntity>()
+            .HasOne(t => t.Project)
+            .WithMany(p => p.Tasks)
+            .HasForeignKey(t=>t.ProjectId);
+
+            
     }
 
     private void SeedData(ModelBuilder modelBuilder)

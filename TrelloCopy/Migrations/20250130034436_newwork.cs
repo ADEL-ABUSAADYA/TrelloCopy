@@ -14,7 +14,7 @@ namespace TrelloCopy.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Roles",
+                name: "Role",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
@@ -29,7 +29,7 @@ namespace TrelloCopy.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Roles", x => x.ID);
+                    table.PrimaryKey("PK_Role", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,9 +59,9 @@ namespace TrelloCopy.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Users_Roles_RoleID",
+                        name: "FK_Users_Role_RoleID",
                         column: x => x.RoleID,
-                        principalTable: "Roles",
+                        principalTable: "Role",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -209,7 +209,7 @@ namespace TrelloCopy.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Roles",
+                table: "Role",
                 columns: new[] { "ID", "CreatedBy", "CreatedDate", "Deleted", "Description", "Name", "UpdatedBy", "UpdatedDate" },
                 values: new object[,]
                 {
@@ -285,7 +285,7 @@ namespace TrelloCopy.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Role");
         }
     }
 }

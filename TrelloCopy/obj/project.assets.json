@@ -4779,19 +4779,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ahmed Balal\\.nuget\\packages\\": {}
+    "C:\\Users\\GG\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\study\\TrelloCopy\\TrelloCopy\\TrelloCopy.csproj",
+      "projectUniqueName": "D:\\Ahmed\\ASP.NET\\Web Api\\Projects\\TrelloCopy\\TrelloCopy\\TrelloCopy.csproj",
       "projectName": "TrelloCopy",
-      "projectPath": "F:\\study\\TrelloCopy\\TrelloCopy\\TrelloCopy.csproj",
-      "packagesPath": "C:\\Users\\Ahmed Balal\\.nuget\\packages\\",
-      "outputPath": "F:\\study\\TrelloCopy\\TrelloCopy\\obj\\",
+      "projectPath": "D:\\Ahmed\\ASP.NET\\Web Api\\Projects\\TrelloCopy\\TrelloCopy\\TrelloCopy.csproj",
+      "packagesPath": "C:\\Users\\GG\\.nuget\\packages\\",
+      "outputPath": "D:\\Ahmed\\ASP.NET\\Web Api\\Projects\\TrelloCopy\\TrelloCopy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ahmed Balal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\GG\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4799,7 +4799,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4812,11 +4811,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4905,7 +4899,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

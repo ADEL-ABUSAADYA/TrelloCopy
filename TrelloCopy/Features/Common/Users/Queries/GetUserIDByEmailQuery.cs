@@ -11,7 +11,7 @@ public record GetUserIDByEmailQuery(string Email) : IRequest<RequestResult<int>>
 
 public class GetUserIDByEmailQueryHandler : BaseRequestHandler<GetUserIDByEmailQuery, RequestResult<int>, User>
 {
-    public GetUserIDByEmailQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public GetUserIDByEmailQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

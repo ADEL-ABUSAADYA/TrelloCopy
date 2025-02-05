@@ -33,7 +33,7 @@ namespace TrelloCopy.Features.UserManagement.GetUserDetalies
                 return EndpointResponse<bool>.Failure(response.errorCode , response.message);
 
 
-            return EndpointResponse<bool>.Success(response.isSuccess, "the user has deactivate ");
+            return EndpointResponse<bool>.Success(response.isSuccess, "the status changeed");
 
         }
 

@@ -3,6 +3,7 @@ using TrelloCopy.Common.BaseEndpoints;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Features.AuthManagement.ChangePassword.Commands;
 using TrelloCopy.Features.AuthManagement.ChangePassword;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace TrelloCopy.Features.AuthManagement.ChangePassword;
@@ -14,6 +15,7 @@ public class ChangePasswordEndPoint : BaseEndpoint<ChangePasswordRequestViewMode
     }
 
     [HttpPut]
+    [Authorize]
     public async Task<EndpointResponse<bool>> ChangePassword(ChangePasswordRequestViewModel viewModel)
     {
         var validationResult = ValidateRequest(viewModel);
@@ -24,7 +26,7 @@ public class ChangePasswordEndPoint : BaseEndpoint<ChangePasswordRequestViewMode
         var IsChanged = await _mediator.Send(changePasswordCommand);
         if (!IsChanged.isSuccess)
             return EndpointResponse<bool>.Failure(IsChanged.errorCode, IsChanged.message);
-        return EndpointResponse<bool>.Success(true);
+        return EndpointResponse<bool>.Success(true,"changed sucssfully");
 
 
 

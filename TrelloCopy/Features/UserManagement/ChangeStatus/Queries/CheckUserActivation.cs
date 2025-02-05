@@ -12,7 +12,7 @@ public record CheckUserActivation(int PageNumber , int PageSize) : IRequest<Requ
 
 public class CheckUserActivationHandler : BaseRequestHandler<CheckUserActivation, RequestResult<bool>, User>
 {
-    public CheckUserActivationHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public CheckUserActivationHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

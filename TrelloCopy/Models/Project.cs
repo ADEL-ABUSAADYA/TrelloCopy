@@ -15,5 +15,6 @@ public class Project : BaseModel
     public User Creator { get; set; }
     public ICollection<TaskEntity> Tasks { get; set; }
     public ICollection<SprintItem> SprintItems { get; set; }
+
     public ICollection<UserAssignedProject> UserAssignedProjects { get; set; } = new List<UserAssignedProject>();
 }

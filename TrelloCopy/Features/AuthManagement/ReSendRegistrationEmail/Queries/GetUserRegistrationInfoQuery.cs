@@ -12,7 +12,7 @@ public record GetUserRegistrationInfoQuery(string email) : IRequest<RequestResul
 
 public class GetUserRegistrationInfoQueryHandler : BaseRequestHandler<GetUserRegistrationInfoQuery, RequestResult<RegistrationInfoDTO>, User>
 {
-    public GetUserRegistrationInfoQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public GetUserRegistrationInfoQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

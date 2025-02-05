@@ -2,8 +2,8 @@
 using MediatR;
 using TrelloCopy.Common.BaseHandlers;
 using TrelloCopy.Common.Views;
-using TrelloCopy.Features.ProjectManage.AddProject.Query;
 using TrelloCopy.Models;
+
 
 namespace TrelloCopy.Features.TaskManagement.Tasks.AddTask.Command
 {
@@ -12,7 +12,7 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.AddTask.Command
     }
     public class AddTaskCommandHandler : BaseRequestHandler<AddTaskCommand, RequestResult<bool>, TaskEntity>
     {
-        public AddTaskCommandHandler(BaseRequestHandlerParameters<TaskEntity> parameters) : base(parameters)
+        public AddTaskCommandHandler(BaseWithoutRepositoryRequestHandlerParameter<TaskEntity> parameters) : base(parameters)
         {
         }
 

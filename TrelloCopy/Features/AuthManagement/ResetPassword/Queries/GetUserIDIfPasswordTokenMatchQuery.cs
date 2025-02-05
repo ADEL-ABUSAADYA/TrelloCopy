@@ -12,7 +12,7 @@ public record GetUserIDIfPasswordTokenMatchQuery(string Email, string PasswordTo
 
 public class GetUserIDIfPasswordTokenMatchQueryHandler : BaseRequestHandler<GetUserIDIfPasswordTokenMatchQuery, RequestResult<int>, User>
 {
-    public GetUserIDIfPasswordTokenMatchQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public GetUserIDIfPasswordTokenMatchQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

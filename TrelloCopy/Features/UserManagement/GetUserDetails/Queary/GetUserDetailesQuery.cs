@@ -13,7 +13,7 @@ namespace TrelloCopy.Features.UserManagement.GetUserDetalies.Queary
 
     public class GetUserDetailesQueryHandler : BaseRequestHandler<GetUserDetailesQuery, RequestResult<UserDetailsDTO>, User>
     {
-        public GetUserDetailesQueryHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+        public GetUserDetailesQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
         {
         }
 

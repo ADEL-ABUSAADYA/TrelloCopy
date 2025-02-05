@@ -12,7 +12,7 @@ public record UpdateUser2FASecretKeyCommand(string User2FASecretKey) : IRequest<
 
 public class UpdateUser2FASecretKeyCommandHandler : BaseRequestHandler<UpdateUser2FASecretKeyCommand, RequestResult<bool>, User>
 {
-    public UpdateUser2FASecretKeyCommandHandler(BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public UpdateUser2FASecretKeyCommandHandler(BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

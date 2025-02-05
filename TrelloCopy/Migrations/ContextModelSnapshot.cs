@@ -167,11 +167,66 @@ namespace TrelloCopy.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
                     b.HasIndex("ProjectID");
 
+                    b.HasIndex("UserID");
+
                     b.ToTable("SprintItems");
+                });
+
+            modelBuilder.Entity("TrelloCopy.Models.TaskEntity", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("TrelloCopy.Models.User", b =>
@@ -256,7 +311,7 @@ namespace TrelloCopy.Migrations
                             IsActive = true,
                             IsEmailConfirmed = true,
                             Name = "Admin User",
-                            Password = "AQAAAAIAAYagAAAAEDWv6fBsfngH/qPdsNs5dFqX+Wh3jHp1Qvff3050O9otRDLRBYKkITl0Q/Ztnd4MNQ==",
+                            Password = "AQAAAAIAAYagAAAAEDNHypbOoWuoMaLFlg15x7uou3Ec/OfoO0l0K5B/l6oucrWtu5AxYcoOyCaYW54eMA==",
                             PhoneNo = "1234567890",
                             RoleID = 1,
                             TwoFactorAuthEnabled = false,
@@ -576,44 +631,6 @@ namespace TrelloCopy.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TrelloCopy.Models.UserSprintItem", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("SprintItemID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UpdatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("SprintItemID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("UserSprintItems");
-                });
-
             modelBuilder.Entity("TrelloCopy.Models.Project", b =>
                 {
                     b.HasOne("TrelloCopy.Models.User", "Creator")
@@ -633,7 +650,34 @@ namespace TrelloCopy.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TrelloCopy.Models.User", "User")
+                        .WithMany("UserSprintItems")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Project");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TrelloCopy.Models.TaskEntity", b =>
+                {
+                    b.HasOne("TrelloCopy.Models.Project", "Project")
+                        .WithMany("Tasks")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TrelloCopy.Models.User", "User")
+                        .WithOne("Task")
+                        .HasForeignKey("TrelloCopy.Models.TaskEntity", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TrelloCopy.Models.User", b =>
@@ -677,28 +721,11 @@ namespace TrelloCopy.Migrations
                     b.Navigation("user");
                 });
 
-            modelBuilder.Entity("TrelloCopy.Models.UserSprintItem", b =>
-                {
-                    b.HasOne("TrelloCopy.Models.SprintItem", "SprintItem")
-                        .WithMany("UserSprintItems")
-                        .HasForeignKey("SprintItemID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TrelloCopy.Models.User", "User")
-                        .WithMany("UserSprintItems")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SprintItem");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("TrelloCopy.Models.Project", b =>
                 {
                     b.Navigation("SprintItems");
+
+                    b.Navigation("Tasks");
 
                     b.Navigation("UserAssignedProjects");
                 });
@@ -708,14 +735,12 @@ namespace TrelloCopy.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("TrelloCopy.Models.SprintItem", b =>
-                {
-                    b.Navigation("UserSprintItems");
-                });
-
             modelBuilder.Entity("TrelloCopy.Models.User", b =>
                 {
                     b.Navigation("CreatedProjects");
+
+                    b.Navigation("Task")
+                        .IsRequired();
 
                     b.Navigation("UserAssignedProjects");
 

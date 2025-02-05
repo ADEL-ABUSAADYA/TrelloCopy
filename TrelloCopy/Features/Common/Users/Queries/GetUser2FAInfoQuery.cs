@@ -12,7 +12,7 @@ public record GetUser2FAInfoQuery() : IRequest<RequestResult<User2FAInfoDTO>>;
 
 public class GetUser2FAInfoQueryHandler : BaseRequestHandler<GetUser2FAInfoQuery, RequestResult<User2FAInfoDTO>, User>
 {
-    public GetUser2FAInfoQueryHandler (BaseRequestHandlerParameters<User> parameters) : base(parameters)
+    public GetUser2FAInfoQueryHandler (BaseWithoutRepositoryRequestHandlerParameter<User> parameters) : base(parameters)
     {
     }
 

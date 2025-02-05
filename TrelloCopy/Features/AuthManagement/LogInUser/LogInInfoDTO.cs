@@ -2,7 +2,7 @@ using FluentValidation;
 
 namespace TrelloCopy.Features.AuthManagement.LogInUser;
 
-public record LogInInfoDTO(int ID, bool Is2FAEnabled, string hashedPassword, bool IsEmailConfirmed);
+public record LogInInfoDTO(int ID, bool Is2FAEnabled, string hashedPassword, bool IsEmailConfirmed , bool IsActivte);
 
 public class LogInInfoDTOValidator : AbstractValidator<LogInInfoDTO>
 {

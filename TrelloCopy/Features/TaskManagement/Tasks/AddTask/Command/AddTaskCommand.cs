@@ -3,6 +3,7 @@ using MediatR;
 using TrelloCopy.Common.BaseHandlers;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Models;
+using TrelloCopy.Models.Enums;
 
 
 namespace TrelloCopy.Features.TaskManagement.Tasks.AddTask.Command
@@ -22,7 +23,7 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.AddTask.Command
             {
                 Title = request.Title,
                 Description = request.Description,
-                Status = (TaskStatus)Enum.Parse(typeof(Models.Enums.TaskStatus), request.Status),
+                Status = (TaskStatu)Enum.Parse(typeof(TaskStatu), request.Status),
                 UserId = request.UserId,
                 ProjectId = request.ProjectId
             };

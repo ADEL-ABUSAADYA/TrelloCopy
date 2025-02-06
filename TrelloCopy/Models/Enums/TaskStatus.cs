@@ -1,6 +1,6 @@
 ﻿namespace TrelloCopy.Models.Enums
 {
-    public enum TaskStatus
+    public enum TaskStatu
     {
         ToDo,
         InProgress,

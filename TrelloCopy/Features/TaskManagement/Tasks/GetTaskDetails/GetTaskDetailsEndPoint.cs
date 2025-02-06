@@ -6,16 +6,19 @@ using TrelloCopy.Features.TaskManagement.Tasks.GetTaskDetails.Query;
 
 namespace TrelloCopy.Features.TaskManagement.Tasks.GetTaskDetails
 {
-    public class GetTaskDetailsEndPoint : BaseEndpoint<int, GetTaskDto>
+    public class GetTaskDetailsEndPoint : BaseEndpoint<RequestParame, GetTaskDto>
     {
-        public GetTaskDetailsEndPoint(BaseEndpointParameters<int> parameters) : base(parameters)
+        public GetTaskDetailsEndPoint(BaseEndpointParameters<RequestParame> parameters) : base(parameters)
         {
         }
 
         [HttpGet("{id:int}")]
-        public async Task<EndpointResponse<GetTaskDto>> GetTaskDetails(int id)
+        public async Task<EndpointResponse<GetTaskDto>> GetTaskDetails([FromQuery]RequestParame request)
         {
-            var requestResponse = await _mediator.Send(new GetTaskDetailsQuery(id));
+            var vailtion = ValidateRequest(request);
+            if (!vailtion.isSuccess) return vailtion;
+
+            var requestResponse = await _mediator.Send(new GetTaskDetailsQuery(request.id));
             if (!requestResponse.isSuccess)
                 return EndpointResponse<GetTaskDto>.Failure(requestResponse.errorCode, requestResponse.message);
             return EndpointResponse<GetTaskDto>.Success(requestResponse.data);

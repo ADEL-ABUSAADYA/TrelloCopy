@@ -25,8 +25,8 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.DeleteTask.Command
                 ID = request.Id,
                 Deleted = true
             };
-            _repository.SaveInclude(task,nameof(task.Deleted));
-            _repository.SaveChanges();
+          await  _repository.SaveIncludeAsync(task,nameof(task.Deleted));
+           await _repository.SaveChangesAsync();
             return RequestResult<bool>.Success(true,"Task Deleted Successfully");
         }
     }

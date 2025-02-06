@@ -26,6 +26,7 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.AddTask
                 .NotEmpty()
                 .WithMessage("Title is required")
                 .Must(BeUniqueTitle);
+               
 
             #endregion
             
@@ -48,7 +49,7 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.AddTask
             #endregion
 
         }
-        private bool BeUniqueTitle(string title)
+        private bool BeUniqueTitle(string title )
         {
             return context.Tasks.All(x => x.Title != title);
         }

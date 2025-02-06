@@ -7,12 +7,15 @@ using TrelloCopy.Features.TaskManagement.Tasks.DeleteTask.Command;
 
 namespace TrelloCopy.Features.TaskManagement.Tasks.DeleteTask
 {
-    public class DeleteTaskEndpoint(BaseEndpointParameters<int> parameters) : BaseEndpoint<int, bool>(parameters)
+    public class DeleteTaskEndpoint(BaseEndpointParameters<RequestParames> parameters) : BaseEndpoint<RequestParames, bool>(parameters)
     {
-        [HttpDelete("/{id:int}")]
-        public async Task<EndpointResponse<bool>> DeleteTask(int id)
+        [HttpDelete]
+        public async Task<EndpointResponse<bool>> DeleteTask([FromQuery] RequestParames request)
         {
-            var result = await _mediator.Send(new DeleteTaskCommand(id));
+            var vailtion = ValidateRequest(request);
+            if (!vailtion.isSuccess) return vailtion;
+
+            var result = await _mediator.Send(new DeleteTaskCommand(request.id));
             return result.isSuccess ? EndpointResponse<bool>.Success(result.data, result.message) 
                 : EndpointResponse<bool>.Failure(result.errorCode, result.message);
         }

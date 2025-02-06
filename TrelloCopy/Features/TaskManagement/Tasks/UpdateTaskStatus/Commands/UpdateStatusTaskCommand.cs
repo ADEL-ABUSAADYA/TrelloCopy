@@ -4,10 +4,11 @@ using TrelloCopy.Common.BaseHandlers;
 using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Common.Views;
 using TrelloCopy.Models;
+using TrelloCopy.Models.Enums;
 
 namespace TrelloCopy.Features.TaskManagement.Tasks.UpdateTaskStatus.Commands
 {
-    public record UpdateStatusCommand (int id , TaskStatus Status ) : IRequest<RequestResult<bool>>;
+    public record UpdateStatusCommand (int id , TaskStatu Status ) : IRequest<RequestResult<bool>>;
 
     public class UpdateStatusTaskCommand : BaseRequestHandler<UpdateStatusCommand, RequestResult<bool>, TaskEntity>
     {

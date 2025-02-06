@@ -7,7 +7,7 @@ using TrelloCopy.Models;
 
 namespace TrelloCopy.Features.TaskManagement.Tasks.GetAllTasks.Query
 {
-    public record GetAllTasksQuery(int PageNumber, int PageSize) : IRequest<RequestResult<Pagination<GetTaskDto>>>;
+    public record GetAllTasksQuery(int PageNumber, int PageSize, string? title) : IRequest<RequestResult<Pagination<GetTaskDto>>>;
     public class GetAllTasksQueryHandler : BaseRequestHandler<GetAllTasksQuery, RequestResult<Pagination<GetTaskDto>>, TaskEntity>
     {
         public GetAllTasksQueryHandler(BaseWithoutRepositoryRequestHandlerParameter<TaskEntity> parameters) : base(parameters)
@@ -18,6 +18,9 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.GetAllTasks.Query
         {
             var data = _repository.GetAll();
             if (!data.Any()) return RequestResult<Pagination<GetTaskDto>>.Failure(ErrorCode.NoTaskAdd);
+
+            if (!string.IsNullOrEmpty(request.title)) data = data.Where(c => c.Title.Contains(request.title)); 
+
             var tasks = data.Select(c => new GetTaskDto(c.Title, c.Description, c.User.Name, c.Status.ToString(), c.Project.Title, c.CreatedDate));
             var paginatedResult = await Pagination<GetTaskDto>.ToPagedList(tasks, request.PageNumber, request.PageSize);
             return RequestResult<Pagination<GetTaskDto>>.Success(paginatedResult);

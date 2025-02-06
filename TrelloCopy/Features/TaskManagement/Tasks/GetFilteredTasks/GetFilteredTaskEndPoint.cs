@@ -11,7 +11,7 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.GetFilteredTasks
         : BaseEndpoint<GetFilteredTasksParams, GetFilteredTasksResponseViewModel>(parameters)
     {
         [HttpGet]
-        public async Task<EndpointResponse<GetFilteredTasksResponseViewModel>> GetFilteredTasks(GetFilteredTasksParams parameters )
+        public async Task<EndpointResponse<GetFilteredTasksResponseViewModel>> GetFilteredTasks([FromQuery]GetFilteredTasksParams parameters )
         {
             var validationResult = ValidateRequest(parameters);
             if (!validationResult.isSuccess)

@@ -16,7 +16,7 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.GetAllTasks
             var validationResult = ValidateRequest(parametres);
             if (!validationResult.isSuccess)
                 return validationResult;
-            var requestResponse = await _mediator.Send(new GetAllTasksQuery(parametres.PageNumber, parametres.PageSize));
+            var requestResponse = await _mediator.Send(new GetAllTasksQuery(parametres.PageNumber, parametres.PageSize , parametres.title));
             if (!requestResponse.isSuccess)
                 return EndpointResponse<GetAllTasksResponseViewModel>.Failure(requestResponse.errorCode, requestResponse.message);
             var response = new GetAllTasksResponseViewModel()

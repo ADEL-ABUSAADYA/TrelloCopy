@@ -8,9 +8,13 @@
 
     <ItemGroup>
       <Compile Remove="Features\ProjectManagement\**" />
+      <Compile Remove="Features\TaskManagement\Tasks\AddTask\Query\**" />
       <Content Remove="Features\ProjectManagement\**" />
+      <Content Remove="Features\TaskManagement\Tasks\AddTask\Query\**" />
       <EmbeddedResource Remove="Features\ProjectManagement\**" />
+      <EmbeddedResource Remove="Features\TaskManagement\Tasks\AddTask\Query\**" />
       <None Remove="Features\ProjectManagement\**" />
+      <None Remove="Features\TaskManagement\Tasks\AddTask\Query\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -36,7 +40,7 @@
 
     <ItemGroup>
       <Folder Include="Features\AuthManagement\GetUser2FALink\Queries\" />
-      <Folder Include="Features\TaskManagement\Tasks\AddTask\Query\" />
+      <Folder Include="Features\TaskManagement\Tasks\UpdateTaskStatus\Querys\" />
       <Folder Include="Features\UserManagement\GetUserDetails\Command\" />
     </ItemGroup>
 

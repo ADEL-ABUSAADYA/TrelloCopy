@@ -22,7 +22,7 @@ namespace TrelloCopy.Features.ProjectManage.GetProjectDetailes.Query
         {
             var query = await _repository.Get(c => c.ID == request.id && !c.Deleted).Select(c => new
             {
-                c.SprintItems,
+                c.Tasks,
                 c.CreatedDate,
                 c.Description,
                 c.Title
@@ -34,8 +34,8 @@ namespace TrelloCopy.Features.ProjectManage.GetProjectDetailes.Query
             {
                 title = query.Title,
                 description = query.Description,
-                NumTask = query.SprintItems.Select(c => c.ID).Count(),
-                NumUSers = query.SprintItems.Select(c => c.UserID).Distinct().Count(),
+                NumTask = query.Tasks.Select(c => c.ID).Count(),
+                NumUSers = query.Tasks.Select(c => c.UserId).Distinct().Count(),
                 CreatedDate = query.CreatedDate,
             };
 

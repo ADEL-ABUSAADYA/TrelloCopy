@@ -6,7 +6,7 @@ public class TaskEntity : BaseModel
     public string Description { get; set; }
     public int UserId { get; set; }
     public User User { get; set; }
-    public Enums.TaskStatus Status { get; set; }
+    public TaskStatus Status { get; set; }
     public int ProjectId { get; set; }
     public Project Project { get; set; }   
 }

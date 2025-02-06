@@ -12,9 +12,9 @@ namespace TrelloCopy.Features.Common.Command
     public record DeleteTasksRelatedToProject (int projectID) :IRequest<RequestResult<bool>>;
 
 
-    public class DeleteTasksRelatedToProjectHandler : BaseRequestHandler<DeleteTasksRelatedToProject, RequestResult<bool>, SprintItem>
+    public class DeleteTasksRelatedToProjectHandler : BaseRequestHandler<DeleteTasksRelatedToProject, RequestResult<bool>, TaskEntity>
     {
-        public DeleteTasksRelatedToProjectHandler(BaseWithoutRepositoryRequestHandlerParameter<SprintItem> parameters) : base(parameters)
+        public DeleteTasksRelatedToProjectHandler(BaseWithoutRepositoryRequestHandlerParameter<TaskEntity> parameters) : base(parameters)
         {
 
 
@@ -24,7 +24,7 @@ namespace TrelloCopy.Features.Common.Command
         {
 
             var tasks =  _repository.
-                Get(c => c.ProjectID == request.projectID && !c.Deleted).
+                Get(c => c.ProjectId == request.projectID && !c.Deleted).
                 ExecuteUpdateAsync(c=> c.SetProperty(p=> p.Deleted , true ).
                                        SetProperty(p => p.UpdatedDate, DateTime.UtcNow),
                                                                       cancellationToken);  

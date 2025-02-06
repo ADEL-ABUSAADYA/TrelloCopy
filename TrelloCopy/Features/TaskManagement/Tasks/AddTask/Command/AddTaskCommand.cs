@@ -22,7 +22,7 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.AddTask.Command
             {
                 Title = request.Title,
                 Description = request.Description,
-                Status = (Models.Enums.TaskStatus)Enum.Parse(typeof(Models.Enums.TaskStatus), request.Status),
+                Status = (TaskStatus)Enum.Parse(typeof(Models.Enums.TaskStatus), request.Status),
                 UserId = request.UserId,
                 ProjectId = request.ProjectId
             };

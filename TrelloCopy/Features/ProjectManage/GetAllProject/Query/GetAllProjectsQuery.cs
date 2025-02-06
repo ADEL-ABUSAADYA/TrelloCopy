@@ -34,8 +34,8 @@ namespace TrelloCopy.Features.ProjectManage.GetAllProject.Query
             {
                 title = c.Title,
                 description = c.Description,
-                NumTask = c.SprintItems.Select(c => c.ID).Count(),
-                NumUSers = c.SprintItems.Select(c => c.UserID).Distinct().Count(),
+                NumTask = c.Tasks.Select(c => c.ID).Count(),
+                NumUSers = c.Tasks.Select(c => c.UserId).Distinct().Count(),
                 CreatedDate = c.CreatedDate,
             });
 

@@ -20,7 +20,7 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.AddTask
             if (!validationResult.isSuccess)
                 return validationResult;
 
-            var task = await _mediator.Send(new AddTaskCommand(viewmodel.Title,Models.Enums.TaskStatus.ToDo.ToString(),viewmodel.Description, viewmodel.UserId, viewmodel.ProjectId));
+            var task = await _mediator.Send(new AddTaskCommand(viewmodel.Title, viewmodel.Description, Models.Enums.TaskStatus.ToDo.ToString(), viewmodel.UserId, viewmodel.ProjectId));
             if (!task.isSuccess)
                 return EndpointResponse<bool>.Failure(task.errorCode, task.message);
 

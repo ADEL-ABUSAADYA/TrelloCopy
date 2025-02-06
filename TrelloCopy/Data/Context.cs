@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using TrelloCopy.Common.Data.Enums;
 using TrelloCopy.Models;
 using static Org.BouncyCastle.Math.EC.ECCurve;
 using System.Diagnostics;
+using Microsoft.Extensions.Hosting;
 
 namespace TrelloCopy.Data;
 public class Context : DbContext
@@ -14,7 +15,7 @@ public class Context : DbContext
 
     // Users Management
     public DbSet<User> Users { get; set; }
-    public DbSet<SprintItem> SprintItems { get; set; }
+   // public DbSet<SprintItem> SprintItems { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<Project> Projects { get; set; }
     public DbSet<Models.TaskEntity> Tasks { get; set; }
@@ -28,6 +29,8 @@ public class Context : DbContext
             .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
             .LogTo(log => Debug.WriteLine(log), LogLevel.Information)
             .EnableSensitiveDataLogging();
+     
+    
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -55,13 +58,17 @@ public class Context : DbContext
             .OnDelete(DeleteBehavior.NoAction);  // Avoid cascade delete
         modelBuilder.Entity<Models.TaskEntity>()
             .HasOne(t => t.User)
-            .WithOne(u => u.Task);
+            .WithMany(u => u.Tasks);
         modelBuilder.Entity<Models.TaskEntity>()
             .HasOne(t => t.Project)
             .WithMany(p => p.Tasks)
             .HasForeignKey(t=>t.ProjectId);
 
-            
+        modelBuilder.Entity<Role>().ToTable("Role");
+
+
+        modelBuilder.Entity<TaskEntity>().HasQueryFilter(p => !p.Deleted);
+
     }
 
     private void SeedData(ModelBuilder modelBuilder)

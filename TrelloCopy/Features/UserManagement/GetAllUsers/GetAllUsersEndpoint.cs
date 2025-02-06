@@ -30,7 +30,7 @@ public class GetAllUsersEndpoint : BaseEndpoint<PaginationRequestViewModel ,User
 
       var response = new UserResponseViewModel
       {
-         Users = paginatedResult.Items.Select(u => new UserDTO
+         Users = paginatedResult.Select(u => new UserDTO
          {
             Email = u.Email,
             Name = u.Name,
@@ -38,8 +38,8 @@ public class GetAllUsersEndpoint : BaseEndpoint<PaginationRequestViewModel ,User
             IsActive = u.IsActive
          }).ToList(),
          TotalCount = paginatedResult.TotalCount,
-         PageNumber = paginatedResult.PageNumber,
-         PageSize = paginatedResult.PageSize
+         PageNumber = paginationRequest.PageNumber,
+         PageSize = paginationRequest.PageSize
       };
 
       return EndpointResponse<UserResponseViewModel>.Success(response);

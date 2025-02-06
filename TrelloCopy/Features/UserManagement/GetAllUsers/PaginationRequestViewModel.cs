@@ -1,8 +1,9 @@
 using FluentValidation;
+using TrelloCopy.Common.Helper;
 
 namespace TrelloCopy.Features.UserManagement.GetAllUsers;
 
-public record PaginationRequestViewModel(int PageNumber, int PageSize);
+public class PaginationRequestViewModel() : QueryStringParamater; 
 
 public class PaginationRequestViewModelValidator : AbstractValidator<PaginationRequestViewModel>
 {

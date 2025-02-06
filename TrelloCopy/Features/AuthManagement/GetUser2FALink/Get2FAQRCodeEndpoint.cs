@@ -13,19 +13,19 @@ public class Get2FAQRCodeEndpoint : BaseEndpoint<int, string>
     {
     }
     
-    [HttpGet]
-    public  async Task<EndpointResponse<string>> GetLink()
-    {
-        var user2FADataCommand =await _mediator.Send(new GetUser2FAInfoQuery());
-        if (!user2FADataCommand.isSuccess)
-            return EndpointResponse<string>.Failure(user2FADataCommand.errorCode, user2FADataCommand.message);
+    //[HttpGet]
+    //public  async Task<EndpointResponse<string>> GetLink()
+    //{
+    //    var user2FADataCommand =await _mediator.Send(new GetUser2FAInfoQuery());
+    //    if (!user2FADataCommand.isSuccess)
+    //        return EndpointResponse<string>.Failure(user2FADataCommand.errorCode, user2FADataCommand.message);
 
-        if (!user2FADataCommand.data.Is2FAEnabled || user2FADataCommand.data.TwoFactorAuthSecretKey is null)
-            return EndpointResponse<string>.Failure(ErrorCode.Uasr2FAIsNotEnabled, "please activate 2FA first");
+    //    if (!user2FADataCommand.data.Is2FAEnabled || user2FADataCommand.data.TwoFactorAuthSecretKey is null)
+    //        return EndpointResponse<string>.Failure(ErrorCode.Uasr2FAIsNotEnabled, "please activate 2FA first");
         
-        var appName = "UpSkilling-FoodApp-JSB2";
-        string otpUrl = $"otpauth://totp/{appName}:{_userInfo.ID}?secret={user2FADataCommand.data.TwoFactorAuthSecretKey}&issuer={appName}";
+    //    var appName = "UpSkilling-FoodApp-JSB2";
+    //    string otpUrl = $"otpauth://totp/{appName}:{_userInfo.ID}?secret={user2FADataCommand.data.TwoFactorAuthSecretKey}&issuer={appName}";
 
-        return EndpointResponse<string>.Success(otpUrl);
-    }
+    //    return EndpointResponse<string>.Success(otpUrl);
+    //}
 }

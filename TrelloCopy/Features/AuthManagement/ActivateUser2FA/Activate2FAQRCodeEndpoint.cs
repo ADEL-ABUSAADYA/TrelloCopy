@@ -17,15 +17,15 @@ public class Activate2FAQRCodeEndpoint : BaseEndpoint<LogInInfoDTO, string>
     {
     }
     
-    [HttpPost]
-    [Authorize]
-    [TypeFilter(typeof(CustomizeAuthorizeAttribute), Arguments =new object[] {Feature.ActivateUser2FA})]
-    public async Task<EndpointResponse<string>> ActivateUser2FA()
-    {
-        var activateCommand = await _mediator.Send(new ActivateUser2FAOrchestrator());
-        if (!activateCommand.isSuccess)
-            return EndpointResponse<string>.Failure(activateCommand.errorCode, activateCommand.message);
+    //[HttpPost]
+    //[Authorize]
+    //[TypeFilter(typeof(CustomizeAuthorizeAttribute), Arguments =new object[] {Feature.ActivateUser2FA})]
+    //public async Task<EndpointResponse<string>> ActivateUser2FA()
+    //{
+    //    var activateCommand = await _mediator.Send(new ActivateUser2FAOrchestrator());
+    //    if (!activateCommand.isSuccess)
+    //        return EndpointResponse<string>.Failure(activateCommand.errorCode, activateCommand.message);
         
-        return EndpointResponse<string>.Success(activateCommand.data);
-    }
+    //    return EndpointResponse<string>.Success(activateCommand.data);
+    //}
 }

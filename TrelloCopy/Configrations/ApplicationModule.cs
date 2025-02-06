@@ -36,7 +36,7 @@ namespace TrelloCopy.Configrations
             builder.Register(context =>
             {
                 var config = context.Resolve<IConfiguration>();
-                var connectionString = config.GetConnectionString("DefaultConnection");
+                var connectionString = config.GetConnectionString("ServerConnection");
                 var options = new DbContextOptionsBuilder<Context>()
                     .UseSqlServer(connectionString)
                     .Options;
@@ -155,7 +155,7 @@ namespace TrelloCopy.Configrations
             builder.RegisterType<Mediator>().As<IMediator>().InstancePerLifetimeScope(); 
             #endregion
             builder.RegisterType<BaseWithoutRepositoryRequestHandlerParameter<User>>().AsSelf().InstancePerLifetimeScope();
-            builder.RegisterType<GetAllUsersQueryHandler>().As<IRequestHandler<GetAllUsersQuery, RequestResult<PaginatedResult<UserDTO>>>>().InstancePerLifetimeScope();
+            //builder.RegisterType<GetAllUsersQueryHandler>().As<IRequestHandler<GetAllUsersQuery, RequestResult<PaginatedResult<UserDTO>>>>().InstancePerLifetimeScope();
             builder.RegisterType<BaseWithoutRepositoryRequestHandlerParameter<Project>>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<BaseWithoutRepositoryRequestHandlerParameter<TaskEntity>>().AsSelf().InstancePerLifetimeScope();
 

@@ -12,7 +12,7 @@ namespace TrelloCopy.Features.TaskManagement.Tasks.GetTaskDetails
         {
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet]
         public async Task<EndpointResponse<GetTaskDto>> GetTaskDetails([FromQuery]RequestParame request)
         {
             var vailtion = ValidateRequest(request);

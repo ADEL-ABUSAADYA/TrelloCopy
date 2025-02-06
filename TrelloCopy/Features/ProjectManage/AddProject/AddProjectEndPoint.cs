@@ -20,7 +20,9 @@ namespace TrelloCopy.Features.ProjectManage.AddProject
         [HttpPost]
         [Authorize]
 
-        public async Task<EndpointResponse<bool>> AddBook(RequestAddProjectModel viewmodel)
+      
+
+        public async Task<EndpointResponse<bool>> AddProject(RequestAddProjectModel viewmodel)
         {
             var validationResult = ValidateRequest(viewmodel);
             if (!validationResult.isSuccess)
